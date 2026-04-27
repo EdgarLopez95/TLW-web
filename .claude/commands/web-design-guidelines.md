@@ -1,0 +1,90 @@
+# Web Design Guidelines — TWH Website
+
+Standards and conventions for building and maintaining The Learning Warehouse website.
+
+---
+
+## Layout System
+
+### Grid
+- Use a **12-column grid** with `max-w-7xl` (1280px) container, centered
+- Column gap: `gap-6` (24px) on desktop, `gap-4` (16px) on mobile
+- Section vertical padding: `py-16` desktop / `py-10` mobile
+
+### Spacing Scale (Tailwind)
+Use only the 4px base scale: `4, 8, 12, 16, 24, 32, 48, 64, 96, 128px`  
+Never use arbitrary values like `mt-[13px]` — round to the nearest step.
+
+### Breakpoints
+| Name | Min width | Use for |
+|------|-----------|---------|
+| `sm` | 640px | Large phones landscape |
+| `md` | 768px | Tablets |
+| `lg` | 1024px | Small desktops |
+| `xl` | 1280px | Standard desktops |
+
+---
+
+## Component Conventions
+
+### Buttons
+- **Primary:** filled brand color, rounded-md, `px-6 py-3`, font-medium
+- **Secondary:** outlined, same sizing as primary
+- **Ghost:** no border, hover reveals background
+- Min width on desktop: `min-w-[120px]`
+- Never disable buttons silently — show why it's disabled via tooltip or helper text
+
+### Forms
+- Labels always above inputs (never placeholder-only)
+- Validation inline, shown on blur (not on submit only)
+- Required fields marked with `*` and a legend explaining the mark
+- Input height: `h-10` (40px) minimum
+
+### Cards
+- Consistent `rounded-lg` corner radius
+- `shadow-sm` default, `shadow-md` on hover for interactive cards
+- Internal padding: `p-6`
+- Never clip content — use scroll or expand pattern
+
+---
+
+## Page Sections (Standard Structure)
+```
+<header>        ← sticky nav, logo, primary CTA
+<main>
+  <hero>        ← headline, subheadline, CTA pair, visual
+  <social-proof>← logos, numbers, or testimonials
+  <features>    ← 3–6 value props with icons
+  <how-it-works>← numbered steps or process
+  <testimonials>← quotes with photo and attribution
+  <pricing>     ← if applicable
+  <faq>         ← accordion
+  <cta-banner>  ← full-width conversion section
+<footer>        ← links, legal, socials
+```
+
+---
+
+## Images & Media
+- All images: `loading="lazy"` except above-the-fold
+- Hero images: WebP format, provide JPEG fallback
+- Aspect ratios must be declared to prevent layout shift (`aspect-video`, `aspect-square`)
+- Alt text: describe the image content meaningfully
+
+---
+
+## Animation & Motion
+- Default to `transition-all duration-200 ease-in-out` for micro-interactions
+- Respect `prefers-reduced-motion` — wrap GSAP animations in a check
+- Page transitions: fade only (no slide on content-heavy pages — causes disorientation)
+- Avoid looping animations in the main content area
+
+---
+
+## Performance Targets
+| Metric | Target |
+|--------|--------|
+| LCP | < 2.5s |
+| CLS | < 0.1 |
+| FID / INP | < 200ms |
+| Lighthouse Score | ≥ 90 |
