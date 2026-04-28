@@ -7,17 +7,33 @@
   <meta name="description" content="Work with the people who know and love learning. The Learning Warehouse partners with you to design and deliver learning that lifts capability and creates real change.">
   <link rel="icon" href="/assets/images/logos/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="preload" as="image" href="/assets/images/photos/other-1.JPG">
+  <link rel="preload" as="image" href="/assets/images/photos/other-2.JPG">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body class="page-home">
+
+  <!-- Global decorative layer. Edit each item by its position/color class. -->
+  <div class="page-decor" aria-hidden="true">
+    <span class="page-decor__circle page-decor__circle--01 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
+    <span class="page-decor__circle page-decor__circle--02 page-decor__circle--right page-decor__circle--emerald page-decor__circle--watermark"></span>
+    <span class="page-decor__circle page-decor__circle--03 page-decor__circle--left page-decor__circle--lime page-decor__circle--watermark"></span>
+    <span class="page-decor__circle page-decor__circle--04 page-decor__circle--right page-decor__circle--lime page-decor__circle--solid"></span>
+    <span class="page-decor__circle page-decor__circle--05 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
+    <span class="page-decor__circle page-decor__circle--06 page-decor__circle--left page-decor__circle--emerald page-decor__circle--watermark"></span>
+    <span class="page-decor__circle page-decor__circle--07 page-decor__circle--right page-decor__circle--emerald page-decor__circle--solid"></span>
+    <span class="page-decor__circle page-decor__circle--09 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
+    <span class="page-decor__circle page-decor__circle--10 page-decor__circle--right page-decor__circle--lime page-decor__circle--watermark"></span>
+  </div>
 
   <!-- NAVIGATION -->
   <header class="site-header" id="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a href="/" class="nav__logo" aria-label="The Learning Warehouse - Home">
-        <img src="/assets/images/logos/twh-logo-primary.svg" alt="The Learning Warehouse" height="32">
+        <img class="nav__logo-img nav__logo-img--light" src="/assets/images/logos/twh-logo-white.svg" alt="" width="120" height="32" aria-hidden="true">
+        <img class="nav__logo-img nav__logo-img--dark" src="/assets/images/logos/twh-logo-primary.svg" alt="" width="120" height="32" aria-hidden="true">
       </a>
 
       <button class="nav__hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
@@ -48,141 +64,67 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="Hero">
+      <div class="hero__slider" aria-hidden="true">
+        <div class="hero__slide"
+             data-slide-img="/assets/images/photos/other-1.JPG"
+             style="background-image: url('/assets/images/photos/other-1.JPG')"></div>
+        <div class="hero__slide" data-slide-img="/assets/images/photos/other-2.JPG"></div>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
       <div class="container hero__inner">
-
         <div class="hero__content">
-          <span class="overline hero__overline">GOOD LEARNING ON PURPOSE.</span>
           <h1 class="hero__title">
-            <span class="hero__line">WORK WITH THE</span>
-            <span class="hero__line">PEOPLE WHO KNOW &amp;</span>
-            <span class="hero__line"><span class="hero__word hero__word--accent">LOVE LEARNING</span></span>
+            Work with the people who know and
+            <span class="hero__title-accent">love learning.</span>
           </h1>
-          <div class="hero__body">
-            <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
-          </div>
+          <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
           <div class="hero__ctas">
-            <a href="/contact/" class="btn btn--primary">WORK WITH US</a>
-            <a href="/how-we-help/our-approach/" class="btn btn--tertiary">EXPLORE OUR APPROACH</a>
+            <a href="/contact/" class="btn btn--primary hero__cta-primary">Work with us</a>
+            <a href="/how-we-help/our-approach/" class="btn btn--outline-light">Explore our approach</a>
           </div>
         </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero__deco hero__deco--lime"></div>
-          <div class="hero__deco hero__deco--purple"></div>
-          <div class="hero__img-wrap hero__img-wrap--1">
-            <picture>
-              <source media="(min-width: 64rem)"
-                      srcset="assets/images/photos/other-1.JPG"
-                      type="image/jpeg">
-              <source srcset="assets/images/photos/twh-hero-speaker-01-mobile.webp 400w,
-                              assets/images/photos/twh-hero-speaker-01-tablet.webp 600w,
-                              assets/images/photos/twh-hero-speaker-01-desktop.webp 800w"
-                      type="image/webp">
-              <source srcset="assets/images/photos/twh-hero-speaker-01-mobile.jpg 400w,
-                              assets/images/photos/twh-hero-speaker-01-desktop.jpg 800w"
-                      type="image/jpeg">
-              <img src="assets/images/photos/other-1.JPG"
-                   alt="Workshop participants collaborating around a table"
-                   width="400" height="500" loading="eager">
-            </picture>
-          </div>
-          <div class="hero__img-wrap hero__img-wrap--2">
-            <picture>
-              <source media="(min-width: 64rem)"
-                      srcset="assets/images/photos/other-2.JPG"
-                      type="image/jpeg">
-              <source srcset="assets/images/photos/twh-hero-speaker-02-mobile.webp 400w,
-                              assets/images/photos/twh-hero-speaker-02-tablet.webp 600w,
-                              assets/images/photos/twh-hero-speaker-02-desktop.webp 800w"
-                      type="image/webp">
-              <source srcset="assets/images/photos/twh-hero-speaker-02-mobile.jpg 400w,
-                              assets/images/photos/twh-hero-speaker-02-desktop.jpg 800w"
-                      type="image/jpeg">
-              <img src="assets/images/photos/other-2.JPG"
-                   alt="Facilitated group discussion during a workshop"
-                   width="400" height="500" loading="eager">
-            </picture>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════ YOU + WE -->
     <section class="you-we" aria-label="What you bring, what we bring">
-      <div class="section-deco section-deco--emerald section-deco--br" aria-hidden="true"></div>
-      <div class="container you-we__inner">
+      <div class="container">
+        <header class="you-we__statement">
+          <p>We partner with you to design and deliver learning that not only <strong>lifts capability</strong> but <strong>engages and excites your people.</strong></p>
+        </header>
 
-        <div class="you-we__side">
-          <ul class="you-we__list" role="list">
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="lightbulb"></i></span>
-              <span>You have great ideas.</span>
-            </li>
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="users"></i></span>
-              <span>You know your people.</span>
-            </li>
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="target"></i></span>
-              <span>You know what they need.</span>
-            </li>
+        <div class="you-we__grid">
+          <ul class="you-we__list you-we__list--left" role="list">
+            <li class="you-we__item">You have great ideas.</li>
+            <li class="you-we__item">You know your people.</li>
+            <li class="you-we__item">You know what they need.</li>
+          </ul>
+
+          <div class="you-we__divider" aria-hidden="true"></div>
+
+          <ul class="you-we__list you-we__list--right" role="list">
+            <li class="you-we__item">We know learning.</li>
+            <li class="you-we__item">We make it engaging.</li>
+            <li class="you-we__item">We get results.</li>
+            <li class="you-we__item you-we__item--aside">(And we&rsquo;re fun to work with.)</li>
           </ul>
         </div>
-
-        <div class="you-we__divider" aria-hidden="true">
-          <div class="you-we__plus">+</div>
-        </div>
-
-        <div class="you-we__side">
-          <ul class="you-we__list" role="list">
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="book-open"></i></span>
-              <span>We know learning.</span>
-            </li>
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="zap"></i></span>
-              <span>We make it engaging.</span>
-            </li>
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="trending-up"></i></span>
-              <span>We get results.</span>
-            </li>
-            <li>
-              <span class="you-we__icon" aria-hidden="true"><i data-lucide="smile"></i></span>
-              <span>(And we&rsquo;re fun to work with.)</span>
-            </li>
-          </ul>
-        </div>
-
       </div>
     </section>
-
-    <!-- QUOTE + VIDEO -->
-    <section class="quote-video section" aria-label="Our philosophy">
-      <div class="section-deco section-deco--lime section-deco--tl" aria-hidden="true"></div>
-      
-      <div class="container quote-video__inner">
-        <div class="quote-video__quote">
-          <span class="quote-mark" aria-hidden="true">"</span>
-          <blockquote>
-            <p>We partner with you to design and deliver learning that not only <strong>lifts capability</strong> but <strong>engages and excites your people.</strong></p>
-          </blockquote>
-        </div>
-        <div class="quote-video__media">
-          <div class="video-placeholder" role="img" aria-label="Video: The Learning Warehouse - our story">
-            <button class="video-placeholder__play" aria-label="Play video">
-              <i data-lucide="play" aria-hidden="true"></i>
-            </button>
-            <span class="video-placeholder__label">Watch our story</span>
-          </div>
+    <!-- VIDEO -->
+    <section class="video-section" aria-label="The Learning Warehouse video">
+      <div class="container video-section__inner">
+        <div class="video-frame">
+          <button class="video-frame__play" type="button" aria-label="Play video">
+            <i data-lucide="play" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- HOW WE HELP -->
     <section class="how-we-help section" aria-labelledby="how-we-help-title">
-      <div class="section-deco section-deco--purple section-deco--tr" aria-hidden="true"></div>
       <div class="container">
         <header class="section-header">
           <span class="overline">What we do</span>
@@ -207,8 +149,7 @@
                 <i data-lucide="wrench"></i>
               </div>
               <h3 class="card__title">LEARNING TOOLS</h3>
-              <p>To succeed, great learning needs great tools. We use and provide learning platforms, tools and resources, that we trust, to support learning.</p>
-              <span class="card__overline">Outcomes first. Tools in service of them.</span>
+              <p>Outcomes first. Tools in service of them.<br>To succeed, great learning needs great tools. We use and provide learning platforms, tools and resources, that we trust, to support learning.</p>
               <a href="/how-we-help/learning-tools/" class="btn btn--primary card__cta">
                 LEARN MORE <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
@@ -221,12 +162,9 @@
 
     <!-- PARTNERS -->
     <section class="partners section" aria-labelledby="partners-title">
-      <div class="section-deco section-deco--emerald section-deco--tl" aria-hidden="true"></div>
-      <div class="section-deco section-deco--purple  section-deco--br" aria-hidden="true"></div>
       <div class="container partners__header">
         <h2 id="partners-title">WHO WE PARTNER WITH</h2>
         <p class="partners__lead">We partner with decision-makers across education and corporate environments who need confidence that their investment in learning will translate into real-world capability.</p>
-        <span class="badge">TRUSTED BY ORGANISATIONS LIKE:</span>
       </div>
       <div class="partner-cards" aria-hidden="true">
         <div class="partner-cards__track">
@@ -255,7 +193,6 @@
 
     <!-- CTA BANNER -->
     <section class="cta-banner" aria-labelledby="cta-title">
-      <div class="section-deco section-deco--lime   section-deco--tl" aria-hidden="true"></div>
       <div class="container cta-banner__inner">
         <p id="cta-title" class="cta-banner__text">
           IF YOU'RE READY TO DESIGN LEARNING THAT LEADS TO REAL CHANGE, <em>LET'S CHAT.</em>
@@ -316,5 +253,3 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
-
-

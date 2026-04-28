@@ -12,12 +12,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  /*  Nav: scrolled state  */
+  /*  Nav: scrolled state (home = tiny scroll → solid bar; other pages = scroll offset)  */
   const header = document.getElementById('site-header')
+  const isHomePage = document.body.classList.contains('page-home')
 
-  window.addEventListener('scroll', () => {
+  /** Home only: switch header background after a small vertical scroll (still inside hero). */
+  const HOME_NAV_SCROLL_SOLID_PX = 12
+
+  const applyNonHomeNavScroll = () => {
+    if (!header) return
     header.classList.toggle('nav--scrolled', window.scrollY > 40)
-  }, { passive: true })
+  }
+
+  const applyHomeNavScroll = () => {
+    if (!header || !isHomePage) return
+    header.classList.toggle('nav--scrolled', window.scrollY > HOME_NAV_SCROLL_SOLID_PX)
+  }
+
+  if (isHomePage) {
+    applyHomeNavScroll()
+    window.addEventListener('scroll', applyHomeNavScroll, { passive: true })
+  } else {
+    window.addEventListener('scroll', applyNonHomeNavScroll, { passive: true })
+    applyNonHomeNavScroll()
+  }
 
   /*  Nav: mobile toggle  */
   const navToggle = document.getElementById('nav-toggle')
@@ -86,77 +104,71 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMobileNav()
   })
 
+  /*  Hero slider — load background images (always)  */
+  const heroSlides = Array.from(document.querySelectorAll('.hero__slide'))
+  heroSlides.forEach(el => {
+    const url = el.dataset.slideImg
+    if (url) el.style.backgroundImage = `url('${url}')`
+  })
+
   /* 
      GSAP ANIMATIONS
       */
   if (typeof gsap === 'undefined' || reducedMotion) return
 
   /*  Hero entrance  */
-  const heroTl = gsap.timeline({ delay: 0.1 })
+  const heroTl = gsap.timeline({ delay: 0.2 })
 
   heroTl
-    .from('.hero__overline', {
-      y: 20, opacity: 0, duration: 0.6, ease: 'power2.out'
+    .from('.hero__title', {
+      y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
     })
-    .from('.hero__line', {
-      y: 54, opacity: 0, duration: 0.65, stagger: 0.08, ease: 'power3.out'
-    }, '-=0.3')
     .from('.hero__lead', {
-      y: 24, opacity: 0, duration: 0.6, ease: 'power2.out'
-    }, '-=0.4')
-    .from('.hero__bullets li', {
-      y: 16, opacity: 0, duration: 0.5, stagger: 0.12, ease: 'power2.out'
-    }, '-=0.4')
+      y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
+    }, '-=0.5')
     .from('.hero__ctas .btn', {
       y: 16, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
-    }, '-=0.3')
-    .from('.hero__img-wrap--1', {
-      x: window.innerWidth >= 1024 ? 50 : 0,
-      y: window.innerWidth >= 1024 ? 0 : 30,
-      opacity: 0, duration: 0.9, ease: 'power3.out'
-    }, 0.3)
-    .from('.hero__img-wrap--2', {
-      x: window.innerWidth >= 1024 ? 70 : 0,
-      y: window.innerWidth >= 1024 ? 0 : 30,
-      opacity: 0, duration: 0.9, ease: 'power3.out'
-    }, 0.5)
-    .from('.hero__deco--lime', {
-      scale: 0, opacity: 0, duration: 0.7, ease: 'back.out(1.7)'
-    }, 0.8)
-    .from('.hero__deco--purple', {
-      scale: 0, opacity: 0, duration: 0.7, ease: 'back.out(1.7)'
-    }, 0.95)
+    }, '-=0.4')
+
+  /*  Hero slider — Ken Burns + crossfade  */
+  if (heroSlides.length > 0) {
+    const SLIDE_DURATION = 7
+    const FADE_DURATION  = 1.5
+    const START_SCALE    = 1.12
+    const END_SCALE      = 1.0
+
+    const animateSlide = (slide, isFirst = false) => {
+      const tl = gsap.timeline()
+      tl.fromTo(slide,
+        { opacity: isFirst ? 1 : 0, scale: START_SCALE },
+        { opacity: 1, duration: isFirst ? 0 : FADE_DURATION, ease: 'power2.out' }, 0)
+      tl.to(slide, { scale: END_SCALE, duration: SLIDE_DURATION + FADE_DURATION, ease: 'none' }, 0)
+      tl.to(slide, { opacity: 0, duration: FADE_DURATION, ease: 'power2.in' }, SLIDE_DURATION)
+    }
+
+    let idx = 0
+    animateSlide(heroSlides[0], true)
+    setInterval(() => {
+      idx = (idx + 1) % heroSlides.length
+      animateSlide(heroSlides[idx])
+    }, SLIDE_DURATION * 1000)
+  }
 
   /*  You + We  */
-  gsap.from('.you-we__list li', {
+  gsap.from('.you-we__statement', {
     scrollTrigger: { trigger: '.you-we', start: 'top 82%' },
-    x: -18, opacity: 0, duration: 0.5, stagger: 0.09, ease: 'power2.out'
+    y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
   })
 
-  gsap.from('.you-we__plus', {
-    scrollTrigger: { trigger: '.you-we', start: 'top 78%' },
-    scale: 0, opacity: 0, duration: 0.65, ease: 'back.out(1.7)'
+  gsap.from('.you-we__list .you-we__item', {
+    scrollTrigger: { trigger: '.you-we__grid', start: 'top 85%' },
+    y: 16, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out'
   })
 
-  /*  Quote section  */
-  gsap.from('.quote-mark', {
-    scrollTrigger: { trigger: '.quote-video', start: 'top 82%' },
-    y: -30, opacity: 0, duration: 0.7, ease: 'power2.out'
-  })
-
-  gsap.from('blockquote', {
-    scrollTrigger: { trigger: '.quote-video', start: 'top 78%' },
-    y: 40, opacity: 0, duration: 0.9, ease: 'power2.out'
-  })
-
-  gsap.from('.quote-tagline', {
-    scrollTrigger: { trigger: '.quote-video', start: 'top 74%' },
-    y: 20, opacity: 0, duration: 0.7, delay: 0.2, ease: 'power2.out'
-  })
-
-  gsap.from('.video-placeholder', {
-    scrollTrigger: { trigger: '.quote-video', start: 'top 78%' },
-    x: 60, opacity: 0, duration: 0.9, ease: 'power3.out'
+  /*  Video section  */
+  gsap.from('.video-frame', {
+    scrollTrigger: { trigger: '.video-section', start: 'top 82%' },
+    y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
   })
 
   /*  Section header (how we help)  */
@@ -171,48 +183,46 @@ document.addEventListener('DOMContentLoaded', () => {
     opacity: 0, duration: 0.8, stagger: 0.18, ease: 'power2.out'
   })
 
-  /*  Page deco circles: float + parallax  */
-  const floatConfig = [
-    { yFloat: 18, dur: 3.8, scale: 1.05, rot:  2, delay: 0    },
-    { yFloat: 14, dur: 4.4, scale: 1.04, rot: -2, delay: 0.6  },
-    { yFloat: 22, dur: 3.2, scale: 1.06, rot:  3, delay: 1.1  },
-    { yFloat: 16, dur: 5.0, scale: 1.03, rot: -1, delay: 0.3  },
-    { yFloat: 20, dur: 4.1, scale: 1.05, rot:  2, delay: 0.9  },
-    { yFloat: 12, dur: 3.6, scale: 1.04, rot: -3, delay: 0.5  },
-    { yFloat: 24, dur: 4.7, scale: 1.06, rot:  1, delay: 1.4  },
-  ]
+  /*  Global page decor: lively desktop-only motion  */
+  const decorMotion = gsap.matchMedia()
 
-  gsap.utils.toArray('.section-deco').forEach((circle, i) => {
-    const cfg = floatConfig[i] || floatConfig[0]
+  decorMotion.add('(min-width: 1100px)', () => {
+    const floatConfig = [
+      { y: 34, dur: 5.2, breathe: 1.09, breatheDur: 3.4, rot:  4, delay: 0   },
+      { y: 42, dur: 6.0, breathe: 1.07, breatheDur: 3.9, rot: -4, delay: 0.4 },
+      { y: 30, dur: 5.5, breathe: 1.1,  breatheDur: 3.6, rot:  5, delay: 0.8 },
+      { y: 46, dur: 6.4, breathe: 1.08, breatheDur: 4.1, rot: -5, delay: 0.2 },
+      { y: 36, dur: 5.8, breathe: 1.07, breatheDur: 3.7, rot:  3, delay: 1.0 },
+      { y: 50, dur: 6.8, breathe: 1.11, breatheDur: 4.4, rot: -3, delay: 0.6 },
+      { y: 44, dur: 6.2, breathe: 1.1,  breatheDur: 4.0, rot:  5, delay: 1.2 },
+      { y: 28, dur: 5.1, breathe: 1.06, breatheDur: 3.5, rot: -4, delay: 0.9 },
+      { y: 40, dur: 6.6, breathe: 1.08, breatheDur: 4.2, rot:  4, delay: 1.4 },
+      { y: 32, dur: 5.7, breathe: 1.07, breatheDur: 3.8, rot: -5, delay: 0.7 },
+    ]
 
-    /* Float Y */
-    gsap.to(circle, {
-      y: cfg.yFloat,
-      duration: cfg.dur,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
-      delay: cfg.delay
-    })
+    gsap.set('.page-decor__circle', { transformOrigin: '50% 50%' })
 
-    /* Subtle scale pulse  offset timing so it doesn't sync with float */
-    gsap.to(circle, {
-      scale: cfg.scale,
-      duration: cfg.dur * 1.4,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
-      delay: cfg.delay + 0.5
-    })
+    gsap.utils.toArray('.page-decor__circle').forEach((circle, i) => {
+      const cfg = floatConfig[i] || floatConfig[0]
 
-    /* Gentle rotation oscillation */
-    gsap.to(circle, {
-      rotation: cfg.rot,
-      duration: cfg.dur * 2.2,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
-      delay: cfg.delay + 0.2
+      gsap.to(circle, {
+        y: cfg.y,
+        rotation: cfg.rot,
+        duration: cfg.dur,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+        delay: cfg.delay
+      })
+
+      gsap.to(circle, {
+        scale: cfg.breathe,
+        duration: cfg.breatheDur,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+        delay: cfg.delay + 0.35
+      })
     })
   })
 
@@ -241,4 +251,3 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 })
-
