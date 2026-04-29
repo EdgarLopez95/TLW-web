@@ -64,28 +64,25 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="Hero">
+      <div class="hero__slider" aria-hidden="true">
+        <div class="hero__slide"
+             data-slide-img="/assets/images/photos/other-1.JPG"
+             style="background-image: url('/assets/images/photos/other-1.JPG')"></div>
+        <div class="hero__slide" data-slide-img="/assets/images/photos/other-2.JPG"></div>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
       <div class="container hero__inner">
         <div class="hero__content">
           <h1 class="hero__title">
-            WORK WITH THE PEOPLE WHO KNOW AND
-            <span class="hero__title-accent">LOVE LEARNING.</span>
+            Work with the people who know and
+            <span class="hero__title-accent">love learning.</span>
           </h1>
           <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
           <div class="hero__ctas">
-            <a href="/contact/" class="btn btn--primary">Work with us</a>
-            <a href="/how-we-help/our-approach/" class="btn btn--outline-emerald">Explore our approach</a>
+            <a href="/contact/" class="btn btn--primary hero__cta-primary">Work with us</a>
+            <a href="/how-we-help/our-approach/" class="btn btn--outline-light">Explore our approach</a>
           </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <figure class="hero__img-wrap hero__img-wrap--top">
-            <img src="/assets/images/photos/other-1.JPG" alt="" loading="eager" decoding="async">
-          </figure>
-          <figure class="hero__img-wrap hero__img-wrap--bottom">
-            <img src="/assets/images/photos/other-2.JPG" alt="" loading="eager" decoding="async">
-          </figure>
-          <span class="hero__deco hero__deco--purple"></span>
-          <span class="hero__deco hero__deco--lime"></span>
         </div>
       </div>
     </section>

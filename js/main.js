@@ -104,6 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMobileNav()
   })
 
+  /*  Hero slider — load background images (always)  */
+  const heroSlides = Array.from(document.querySelectorAll('.hero__slide'))
+  heroSlides.forEach(el => {
+    const url = el.dataset.slideImg
+    if (url) el.style.backgroundImage = `url('${url}')`
+  })
+
   /* 
      GSAP ANIMATIONS
       */
@@ -122,32 +129,30 @@ document.addEventListener('DOMContentLoaded', () => {
     .from('.hero__ctas .btn', {
       y: 16, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
     }, '-=0.4')
-    .from('.hero__img-wrap--top', {
-      y: 30, opacity: 0, scale: 0.94, duration: 0.9, ease: 'power3.out'
-    }, '-=0.9')
-    .from('.hero__img-wrap--bottom', {
-      y: 30, opacity: 0, scale: 0.94, duration: 0.9, ease: 'power3.out'
-    }, '-=0.7')
-    .from('.hero__deco', {
-      scale: 0, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'back.out(1.7)'
-    }, '-=0.5')
 
-  /*  Hero decorations: subtle floating loop  */
-  gsap.to('.hero__deco--purple', {
-    y: 12, duration: 4.2, ease: 'sine.inOut', yoyo: true, repeat: -1
-  })
+  /*  Hero slider — Ken Burns + crossfade  */
+  if (heroSlides.length > 0) {
+    const SLIDE_DURATION = 7
+    const FADE_DURATION  = 1.5
+    const START_SCALE    = 1.12
+    const END_SCALE      = 1.0
 
-  gsap.to('.hero__deco--lime', {
-    y: -10, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.4
-  })
+    const animateSlide = (slide, isFirst = false) => {
+      const tl = gsap.timeline()
+      tl.fromTo(slide,
+        { opacity: isFirst ? 1 : 0, scale: START_SCALE },
+        { opacity: 1, duration: isFirst ? 0 : FADE_DURATION, ease: 'power2.out' }, 0)
+      tl.to(slide, { scale: END_SCALE, duration: SLIDE_DURATION + FADE_DURATION, ease: 'none' }, 0)
+      tl.to(slide, { opacity: 0, duration: FADE_DURATION, ease: 'power2.in' }, SLIDE_DURATION)
+    }
 
-  gsap.to('.hero__img-wrap--top', {
-    y: -8, duration: 5.4, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.6
-  })
-
-  gsap.to('.hero__img-wrap--bottom', {
-    y: 8, duration: 5.8, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.2
-  })
+    let idx = 0
+    animateSlide(heroSlides[0], true)
+    setInterval(() => {
+      idx = (idx + 1) % heroSlides.length
+      animateSlide(heroSlides[idx])
+    }, SLIDE_DURATION * 1000)
+  }
 
   /*  You + We  */
   gsap.from('.you-we__statement', {
