@@ -1773,7 +1773,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .partner-cards__track {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: clamp(40px, 4.2vw, 68px);
   width: max-content;
   animation: partner-scroll 35s linear infinite;
 }
@@ -1784,9 +1784,9 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 
 .partner-card {
   flex-shrink: 0;
-  width: clamp(154px, 12vw, 204px);
+  width: auto;
   height: 78px;
-  padding: 0 var(--space-3);
+  padding: 0;
   background: transparent;
   border: 0;
   transition: transform 200ms ease-out, filter 200ms ease-out;
@@ -1800,8 +1800,8 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(100%, 156px);
-  max-height: 58px;
+  max-width: clamp(148px, 11vw, 184px);
+  max-height: 62px;
   object-fit: contain;
 }
 
