@@ -411,31 +411,31 @@ body.page-home.mobile-nav-open .site-header {
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__link {
-  color: var(--color-offwhite);
+  color: var(--color-navy);
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__link:hover:not(.nav__link--active) {
-  color: color-mix(in srgb, var(--color-offwhite) 88%, var(--color-lime));
+  color: var(--color-emerald);
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__link--active::after {
-  background: var(--color-lime);
+  background: var(--color-emerald);
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__hamburger {
-  color: var(--color-offwhite);
+  color: var(--color-navy);
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__hamburger:hover {
-  background: color-mix(in srgb, var(--color-offwhite) 12%, transparent);
+  background: color-mix(in srgb, var(--color-navy) 8%, transparent);
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__logo-img--dark {
-  display: none;
+  display: block;
 }
 
 body.page-home:not(.mobile-nav-open) .site-header:not(.nav--scrolled) .nav__logo-img--light {
-  display: block;
+  display: none;
 }
 
 body.page-home .site-header.nav--scrolled .nav__logo-img--light {
@@ -826,7 +826,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 /* ─── 8. HERO ────────────────────────────────────────────── */
 .hero {
   position: relative;
-  background: var(--color-emerald);
+  background: var(--color-offwhite);
   min-height: calc(100vh - var(--site-header-height));
   display: flex;
   align-items: center;
@@ -849,6 +849,8 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   position: absolute;
   inset: 0;
   z-index: 0;
+  /* Keeps the photo atmospheric instead of competing with the hero copy. */
+  opacity: 0.22;
 }
 
 .hero__slide {
@@ -857,6 +859,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  filter: saturate(0.96) contrast(1);
   opacity: 0;
   transform: scale(1.12);
   will-change: transform, opacity;
@@ -871,7 +874,10 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(9, 108, 41, 0.78) 0%, rgba(9, 108, 41, 0.88) 100%);
+  /* Off-white wash: keeps the photo visible while protecting text contrast. */
+  background:
+    radial-gradient(circle at 50% 46%, rgba(247, 244, 238, 0.18) 0%, rgba(247, 244, 238, 0.1) 34%, rgba(247, 244, 238, 0) 68%),
+    linear-gradient(180deg, rgba(247, 244, 238, 0.42) 0%, rgba(247, 244, 238, 0.26) 42%, rgba(247, 244, 238, 0.34) 100%);
   pointer-events: none;
 }
 
@@ -894,13 +900,14 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   font-size: clamp(40px, 6vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--color-offwhite);
+  color: var(--color-navy);
   margin-bottom: var(--space-6);
   text-wrap: balance;
+  text-shadow: 0 2px 18px rgba(247, 244, 238, 0.55);
 }
 
 .hero__title-accent {
-  color: var(--color-lime);
+  color: var(--color-emerald);
   font-weight: inherit;
   font-style: normal;
 }
@@ -911,7 +918,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   font-family: var(--font-body);
   font-size: clamp(18px, 1.6vw, 20px);
   line-height: 1.6;
-  color: rgba(247, 244, 238, 0.92);
+  color: color-mix(in srgb, var(--color-navy) 86%, transparent);
 }
 
 .hero__ctas {
@@ -940,8 +947,19 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 .hero .btn:focus-visible {
-  outline: 2px solid var(--color-offwhite);
+  outline: 2px solid var(--color-emerald);
   outline-offset: 3px;
+}
+
+.hero .btn--outline-light {
+  background: color-mix(in srgb, var(--color-offwhite) 38%, transparent);
+  color: var(--color-navy);
+  border-color: color-mix(in srgb, var(--color-navy) 64%, transparent);
+}
+
+.hero .btn--outline-light:hover {
+  background: color-mix(in srgb, var(--color-navy) 7%, transparent);
+  border-color: var(--color-navy);
 }
 
 @media (prefers-reduced-motion: reduce) {
