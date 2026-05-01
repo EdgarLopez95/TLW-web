@@ -36,20 +36,6 @@
       position: relative;
     }
 
-    /* ── Dot-grid texture ── */
-    body::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(23,23,57,.09) 1.4px, transparent 1.4px),
-        radial-gradient(circle, rgba(23,23,57,.04) .8px,  transparent .8px);
-      background-size: 28px 28px, 28px 28px;
-      background-position: 0 0, 14px 14px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
     /* ── Decorative circles ── */
     .deco {
       position: absolute;
@@ -66,13 +52,13 @@
       left: calc(var(--s) * -.42);
     }
 
-    .deco--purple {
+    .deco--navy-large {
       --s: clamp(220px, 28vw, 440px);
       width: var(--s); height: var(--s);
-      background: var(--color-purple);
+      background: var(--color-navy);
       bottom: calc(var(--s) * -.4);
       right:  calc(var(--s) * -.4);
-      opacity: .88;
+      opacity: .96;
     }
 
     .deco--emerald {
@@ -83,13 +69,13 @@
       right: 9%;
     }
 
-    .deco--navy {
+    .deco--purple-small {
       --s: clamp(44px, 5.5vw, 88px);
       width: var(--s); height: var(--s);
-      background: var(--color-navy);
+      background: var(--color-purple);
       bottom: 16%;
       left:   11%;
-      opacity: .12;
+      opacity: .76;
     }
 
     /* ── Content ── */
@@ -129,8 +115,8 @@
     }
 
     .headline em {
-      font-style: italic;
-      font-weight: 500;
+      font-style: normal;
+      font-weight: 800;
       color: var(--color-emerald);
     }
 
@@ -216,9 +202,9 @@
 <body>
 
   <div class="deco deco--lime"    aria-hidden="true"></div>
-  <div class="deco deco--purple"  aria-hidden="true"></div>
+  <div class="deco deco--navy-large"  aria-hidden="true"></div>
   <div class="deco deco--emerald" aria-hidden="true"></div>
-  <div class="deco deco--navy"    aria-hidden="true"></div>
+  <div class="deco deco--purple-small" aria-hidden="true"></div>
 
   <div class="content">
 
@@ -293,7 +279,7 @@
         .from('.deco--emerald', {
           scale: 0, opacity: 0, duration: .75, ease: 'back.out(1.7)'
         }, .1)
-        .from('.deco--navy', {
+        .from('.deco--purple-small', {
           scale: 0, opacity: 0, duration: .6, ease: 'back.out(1.7)'
         }, .3)
 
@@ -317,7 +303,7 @@
         duration: 5.4, ease: 'sine.inOut', yoyo: true, repeat: -1
       })
 
-      gsap.to('.deco--purple', {
+      gsap.to('.deco--navy-large', {
         y: -22, x: -12,
         duration: 6.2, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: .7
       })
@@ -327,7 +313,7 @@
         duration: 4.6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: .3
       })
 
-      gsap.to('.deco--navy', {
+      gsap.to('.deco--purple-small', {
         y: -14, rotation: -5,
         duration: 3.9, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.1
       })
