@@ -1255,7 +1255,18 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 .card--how::after {
-  content: none;
+  content: '';
+  position: absolute;
+  top: clamp(-72px, -5vw, -44px);
+  right: clamp(-72px, -5vw, -44px);
+  width: clamp(168px, 15vw, 232px);
+  aspect-ratio: 1;
+  border: 1.5px solid var(--card-watermark-border, rgba(23, 23, 57, 0.1));
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at 52% 48%, var(--card-watermark-glow, rgba(255, 255, 255, 0.12)) 0%, transparent 64%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .card--how > * {
@@ -1279,6 +1290,8 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   background: linear-gradient(160deg, rgba(180, 154, 253, 0.94) 0%, rgba(180, 154, 253, 0.82) 100%);
   border-color: rgba(23, 23, 57, 0.16);
   color: var(--color-navy);
+  --card-watermark-border: rgba(23, 23, 57, 0.14);
+  --card-watermark-glow: rgba(247, 244, 238, 0.16);
   box-shadow: 0 24px 64px rgba(180, 154, 253, 0.24);
 }
 
@@ -1319,11 +1332,13 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   background: linear-gradient(160deg, #0c7a34 0%, #096c29 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-on-brand);
+  --card-watermark-border: rgba(199, 241, 54, 0.2);
+  --card-watermark-glow: rgba(199, 241, 54, 0.1);
   box-shadow: 0 26px 70px rgba(9, 108, 41, 0.18);
 }
 
 .card--featured::after {
-  content: none;
+  content: '';
 }
 
 .card--featured::before {
