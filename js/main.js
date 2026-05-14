@@ -104,12 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMobileNav()
   })
 
-  /*  Hero slider — load background images (always)  */
+  /*  Hero slider — images are provided directly in the markup.  */
   const heroSlides = Array.from(document.querySelectorAll('.hero__slide'))
-  heroSlides.forEach(el => {
-    const url = el.dataset.slideImg
-    if (url) el.style.backgroundImage = `url('${url}')`
-  })
 
   /* 
      GSAP ANIMATIONS
