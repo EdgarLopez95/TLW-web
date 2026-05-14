@@ -1,0 +1,36 @@
+name: Deploy TLW Client Preview to FTP
+
+on:
+  push:
+    branches:
+      - client-preview
+
+jobs:
+  deploy-client-preview:
+    name: Upload client preview by FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v4
+
+      - name: Deploy client preview to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /client-preview/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            .cursor/**
+            .claude/**
+            .vscode/**
+            **/node_modules/**
+            README.md
+            AGENTS.md
+            CLAUDE.md
+            DESIGN_SYSTEM.md
