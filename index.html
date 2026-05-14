@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home &mdash; The Learning Warehouse</title>
   <meta name="description" content="Work with the people who know and love learning. The Learning Warehouse partners with you to design and deliver learning that lifts capability and creates real change.">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="assets/images/logos/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/images/logos/favicon.ico" sizes="32x32">
   <link rel="preload" as="image" href="assets/images/photos/other-1.JPG">
@@ -42,19 +43,6 @@
 
       <ul class="nav__links" id="nav-menu" role="list">
         <li><a href="./" class="nav__link nav__link--active" aria-current="page">Home</a></li>
-        <li><a href="about/" class="nav__link">About</a></li>
-        <li class="nav__item--dropdown">
-          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-            How We Help <i data-lucide="chevron-down" aria-hidden="true"></i>
-          </button>
-          <ul class="nav__dropdown" role="list">
-            <li><a href="how-we-help/our-approach/" class="nav__dropdown-link">Our Approach</a></li>
-            <li><a href="how-we-help/learning-design-and-delivery/" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
-            <li><a href="how-we-help/learning-tools/" class="nav__dropdown-link">Learning Tools</a></li>
-          </ul>
-        </li>
-        <li><a href="learning-we-trust/" class="nav__link">Learning We Trust</a></li>
-        <li><a href="contact/" class="nav__link">Contact Us</a></li>
       </ul>
 
     </nav>
@@ -63,7 +51,7 @@
   <main>
 
     <!-- HERO -->
-    <section class="hero" aria-label="Hero">
+    <section class="hero" id="home-hero" aria-label="Hero">
       <div class="hero__slider" aria-hidden="true">
         <div class="hero__slide"
              data-slide-img="assets/images/photos/other-1.JPG"
@@ -80,8 +68,8 @@
           </h1>
           <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
           <div class="hero__ctas">
-            <a href="contact/" class="btn btn--primary hero__cta-primary">Work with us</a>
-            <a href="how-we-help/our-approach/" class="btn btn--outline-light">Explore our approach</a>
+            <a href="#cta-banner" class="btn btn--primary hero__cta-primary">Work with us</a>
+            <a href="#how-we-help" class="btn btn--outline-light">Explore our approach</a>
           </div>
         </div>
       </div>
@@ -112,7 +100,7 @@
       </div>
     </section>
     <!-- VIDEO -->
-    <section class="video-section" aria-label="The Learning Warehouse video">
+    <section class="video-section" id="video-section" aria-label="The Learning Warehouse video">
       <div class="container video-section__inner">
         <div class="video-frame">
           <button class="video-frame__play" type="button" aria-label="Play video">
@@ -123,7 +111,7 @@
     </section>
 
     <!-- HOW WE HELP -->
-    <section class="how-we-help section" aria-labelledby="how-we-help-title">
+    <section class="how-we-help section" id="how-we-help" aria-labelledby="how-we-help-title">
       <div class="container">
         <header class="section-header">
           <span class="overline">What we do</span>
@@ -138,7 +126,7 @@
               </div>
               <h3 class="card__title">LEARNING DESIGN &amp; DELIVERY</h3>
               <p>We work with teams to design and deliver learning that supports organisational priorities, strengthens capability, and leads to measurable change. From developing whole-of-organisation learning strategies to executing targeted professional development with you, our approach is always intentional and practical.</p>
-              <a href="how-we-help/learning-design-and-delivery/" class="btn btn--ghost card__cta">
+              <a href="#partners" class="btn btn--ghost card__cta">
                 LEARN MORE <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
             </article>
@@ -149,7 +137,7 @@
               </div>
               <h3 class="card__title">LEARNING TOOLS</h3>
               <p>Outcomes first. Tools in service of them.<br>To succeed, great learning needs great tools. We use and provide learning platforms, tools and resources, that we trust, to support learning.</p>
-              <a href="how-we-help/learning-tools/" class="btn btn--primary card__cta">
+              <a href="#cta-banner" class="btn btn--primary card__cta">
                 LEARN MORE <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
             </article>
@@ -160,7 +148,7 @@
     </section>
 
     <!-- PARTNERS -->
-    <section class="partners section" aria-labelledby="partners-title">
+    <section class="partners section" id="partners" aria-labelledby="partners-title">
       <div class="container partners__header">
         <h2 id="partners-title">WHO WE PARTNER WITH</h2>
         <p class="partners__lead">We partner with decision-makers across education and corporate environments who need confidence that their investment in learning will translate into real-world capability.</p>
@@ -189,12 +177,12 @@
     </section>
 
     <!-- CTA BANNER -->
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner" id="cta-banner" aria-labelledby="cta-title">
       <div class="container cta-banner__inner">
         <p id="cta-title" class="cta-banner__text">
           IF YOU'RE READY TO DESIGN LEARNING THAT LEADS TO REAL CHANGE, <em>LET'S CHAT.</em>
         </p>
-        <a href="contact/" class="btn btn--primary cta-banner__btn">GET IN TOUCH</a>
+        <a href="#cta-banner" class="btn btn--primary cta-banner__btn">GET IN TOUCH</a>
       </div>
     </section>
 
@@ -216,23 +204,22 @@
         <div class="footer__col">
           <h3 class="footer__col-title">Working With Us</h3>
           <ul role="list">
-            <li><a href="how-we-help/our-approach/">Our Approach</a></li>
-            <li><a href="how-we-help/learning-design-and-delivery/">Our Design &amp; Delivery</a></li>
-            <li><a href="how-we-help/learning-tools/">Our Tools</a></li>
+            <li><a href="./">Home</a></li>
+            <li><a href="#how-we-help">How We Help</a></li>
+            <li><a href="#partners">Who We Partner With</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3 class="footer__col-title">Resources</h3>
           <ul role="list">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Founders bios (Pdf)</a></li>
-            <li><a href="learning-we-trust/">Learning We're Loving</a></li>
-            <li><a href="#">Recommended Providers</a></li>
+            <li><a href="#home-hero">Top of page</a></li>
+            <li><a href="#video-section">Watch the video</a></li>
+            <li><a href="#cta-banner">Get in touch</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--connect">
           <h3 class="footer__col-title">Connect</h3>
-          <a href="contact/" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
+          <a href="#cta-banner" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
           <a href="mailto:admin@thelearningwarehouse.com" class="footer__email">admin@thelearningwarehouse.com</a>
         </div>
       </nav>
