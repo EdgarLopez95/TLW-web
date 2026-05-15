@@ -1046,9 +1046,9 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   gap: var(--space-5);
 }
 
-.you-we__list--left { grid-column: 2 / span 4; }
+.you-we__list--left { grid-column: 1 / span 5; text-align: center; }
 .you-we__divider { grid-column: 6 / span 2; align-self: stretch; display: flex; align-items: stretch; justify-content: center; }
-.you-we__list--right { grid-column: 8 / span 5; }
+.you-we__list--right { grid-column: 8 / span 5; text-align: center; }
 
 .you-we__item {
   font-family: var(--font-heading);
