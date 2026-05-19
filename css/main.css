@@ -336,11 +336,19 @@ em { font-style: italic; }
 .btn:active { transform: scale(0.98); }
 
 .btn--primary {
+  background: var(--color-emerald);
+  color: var(--color-offwhite);
+}
+.btn--primary:hover { background: var(--brand-hover); }
+.btn--primary:active { background: var(--color-emerald); }
+
+/* btn--action: lime+navy — use on dark/emerald/navy backgrounds */
+.btn--action {
   background: var(--action-primary);
   color: var(--text-on-action);
 }
-.btn--primary:hover { background: var(--action-primary-hover); }
-.btn--primary:active { background: var(--action-primary-active); }
+.btn--action:hover { background: var(--action-primary-hover); }
+.btn--action:active { background: var(--action-primary-active); }
 
 .btn--secondary {
   background: var(--action-secondary);
@@ -816,18 +824,6 @@ main {
   flex-wrap: wrap;
 }
 
-.hero .btn--primary {
-  background: var(--color-emerald);
-  color: var(--color-offwhite);
-}
-
-.hero .btn--primary:hover {
-  background: var(--brand-hover);
-}
-
-.hero .btn--primary:active {
-  background: var(--color-emerald);
-}
 
 .hero .btn {
   min-height: 52px;

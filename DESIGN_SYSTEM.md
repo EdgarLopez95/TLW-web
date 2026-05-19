@@ -128,15 +128,18 @@ Grid: mobile 4 cols/16 gutter/20 margin · tablet 8/20/32 · desktop 12/24/48. M
 <button class="btn btn--primary">Start a conversation</button>
 ```
 
-| Variante | Background | Texto | Border |
+| Variante | Background | Texto | Usar en |
 |---|---|---|---|
-| `btn--primary` | `--action-primary` | `--text-on-action` | none |
-| `btn--secondary` | `--action-secondary` | `--text-on-brand` | none |
+| `btn--primary` | `--color-emerald` | `--color-offwhite` | Fondos claros (offwhite, white, muted) |
+| `btn--action` | `--action-primary` (lime) | `--text-on-action` (navy) | Fondos oscuros (emerald, navy) |
+| `btn--secondary` | `--action-secondary` (navy) | `--text-on-brand` | Fondos claros como alternativa secundaria |
 | `btn--tertiary` | transparent | `--text-primary` | `--border-strong` |
 | `btn--ghost` | transparent | `--text-primary` | none, underline en hover |
 
-`min-height: 48px`, padding `var(--space-4) var(--space-6)`, `border-radius: var(--radius-md)`, `font-family: var(--font-heading)`. Máx 1 primary por viewport.
-**Estados:** `:hover` → `--action-primary-hover`/`--action-secondary-hover`. `:active` → `--action-primary-active`. `:focus-visible` → `outline: 2px solid var(--focus-ring); outline-offset: 2px`. `:disabled` → `background: var(--color-bg-disabled); color: var(--color-text-disabled); cursor: not-allowed`.
+**Regla de contexto:** `btn--primary` (emerald) sobre fondos claros. `btn--action` (lime) sobre fondos oscuros (hero, CTA banner, footer navy). Nunca emerald sobre emerald ni emerald sobre navy.
+
+`min-height: 48px`, padding `var(--space-4) var(--space-6)`, `border-radius: var(--radius-md)`, `font-family: var(--font-heading)`. Máx 1 primary/action por viewport.
+**Estados:** `:hover` → `--brand-hover`/`--action-primary-hover`. `:active` → escala `0.98`. `:focus-visible` → `outline: 2px solid var(--focus-ring); outline-offset: 2px`. `:disabled` → `background: var(--color-bg-disabled); color: var(--color-text-disabled); cursor: not-allowed`.
 
 ### Input / Textarea
 
