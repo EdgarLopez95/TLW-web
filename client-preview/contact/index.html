@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us &mdash; The Learning Warehouse</title>
+  <meta name="description" content="Start a conversation with The Learning Warehouse. Tell us what you're thinking and we'll get back to you within 24 hours.">
+  <link rel="icon" href="../assets/images/logos/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="page-contact">
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="../" class="nav__logo" aria-label="The Learning Warehouse - Home">
+        <img class="nav__logo-img nav__logo-img--light" src="../assets/images/logos/twh-logo-white.svg"   alt="" width="120" height="32" aria-hidden="true">
+        <img class="nav__logo-img nav__logo-img--dark"  src="../assets/images/logos/twh-logo-primary.svg" alt="" width="120" height="32" aria-hidden="true">
+      </a>
+
+      <button class="nav__hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav__links" id="nav-menu" role="list">
+        <li><a href="../" class="nav__link">Home</a></li>
+        <li><a href="../about/" class="nav__link">About</a></li>
+        <li class="nav__item--dropdown">
+          <a href="../how-we-help/" class="nav__link">How We Help</a>
+          <button class="nav__dropdown-chevron" aria-expanded="false" aria-haspopup="true" aria-label="How We Help submenu">
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="../how-we-help/#our-approach" class="nav__dropdown-link">Our Approach</a></li>
+            <li><a href="../how-we-help/#learning-design-and-delivery" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
+            <li><a href="../how-we-help/#learning-tools" class="nav__dropdown-link">Learning Tools</a></li>
+          </ul>
+        </li>
+        <li><a href="../learning-we-trust/" class="nav__link">Learning We Trust</a></li>
+        <li><a href="../contact/" class="nav__link nav__link--active" aria-current="page">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main aria-label="Page content" 
+        data-decor-palette="base" 
+        data-decor-density="auto"
+        data-decor-override-3="color:navy"
+        data-decor-override-4="type:watermark">
+
+    <!-- ═══════════════════════════════════════ HERO -->
+    <section class="contact-hero" aria-label="Contact us — page introduction" data-decor-bg="offwhite">
+      <div class="container contact-hero__inner">
+        <span class="contact-hero__overline">CONTACT US</span>
+        <h1 class="contact-hero__title">
+          Start a <em class="contact-hero__accent">conversation.</em>
+        </h1>
+        <p class="contact-hero__lead">Tell us a little about what you&rsquo;re thinking, and we&rsquo;ll get back to you in the next 24 hours.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ FORM -->
+    <section class="contact-body section" aria-label="Start a conversation form" data-decor-bg="offwhite">
+      <div class="container">
+        <div class="contact-form-shell">
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <header class="contact-form__head">
+              <h2 class="contact-form__head-title">Send us a message</h2>
+              <p class="contact-form__head-sub">Tell us what you&rsquo;re working on and we&rsquo;ll get back to you soon.</p>
+            </header>
+
+            <div class="contact-form__fields">
+
+              <div class="contact-form__row contact-form__row--pair">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-name">
+                    <span class="contact-form__num" aria-hidden="true">01</span>
+                    Name
+                  </label>
+                  <input class="contact-form__control" id="contact-name" name="name" type="text" autocomplete="name" required aria-describedby="contact-name-error">
+                  <p class="contact-form__error" id="contact-name-error" aria-live="polite"></p>
+                </div>
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-organisation">
+                    <span class="contact-form__num" aria-hidden="true">02</span>
+                    Organisation
+                    <span class="contact-form__optional">Optional</span>
+                  </label>
+                  <input class="contact-form__control" id="contact-organisation" name="organisation" type="text" autocomplete="organization">
+                  <p class="contact-form__error" id="contact-organisation-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-email">
+                    <span class="contact-form__num" aria-hidden="true">03</span>
+                    Email
+                  </label>
+                  <input class="contact-form__control" id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="contact-email-error">
+                  <p class="contact-form__error" id="contact-email-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-message">
+                    <span class="contact-form__num" aria-hidden="true">04</span>
+                    Message
+                  </label>
+                  <textarea class="contact-form__control contact-form__control--textarea" id="contact-message" name="message" required aria-describedby="contact-message-helper contact-message-error" placeholder="Tell us about your project, timeline or questions."></textarea>
+                  <p class="contact-form__helper" id="contact-message-helper">Tell us about your project, timeline or questions.</p>
+                  <p class="contact-form__error" id="contact-message-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="contact-form__foot">
+              <p class="contact-form__phone">Prefer to call?&ensp;<a href="tel:+61418935724" class="contact-form__phone-link">+61 418 935 724</a></p>
+              <div class="contact-form__actions">
+                <button class="btn btn--primary contact-form__submit" type="submit">Send message</button>
+                <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container footer__top">
+
+      <div class="footer__brand">
+        <a href="../" aria-label="The Learning Warehouse - Home">
+          <img src="../assets/images/logos/twh-logo-white.svg" alt="The Learning Warehouse" height="48">
+        </a>
+        <p class="footer__tagline">work with the people who know and love learning.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__col">
+          <h3 class="footer__col-title">Working With Us</h3>
+          <ul role="list">
+            <li><a href="../how-we-help/#our-approach">Our Approach</a></li>
+            <li><a href="../how-we-help/#learning-design-and-delivery">Our Design &amp; Delivery</a></li>
+            <li><a href="../how-we-help/#learning-tools">Our Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__col-title">Resources</h3>
+          <ul role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Founders bios (Pdf)</a></li>
+            <li><a href="../learning-we-trust/">Learning We&rsquo;re Loving</a></li>
+            <li><a href="#">Recommended Providers</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--connect">
+          <h3 class="footer__col-title">Connect</h3>
+          <a href="../contact/" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
+          <a href="mailto:admin@thelearningwarehouse.com" class="footer__email">admin@thelearningwarehouse.com</a>
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; 2026 THE LEARNING WAREHOUSE. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
