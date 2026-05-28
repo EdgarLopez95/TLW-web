@@ -84,8 +84,20 @@ assets/
 
 ## Full Guidelines
 Detailed rules live in `.cursor/rules/`:
+
+### Brand & Design System
 - `brand-guidelines.mdc` — colors, typography, voice
 - `web-design-guidelines.mdc` — layout, components, page structure
-- `shadcn.mdc` — shadcn/ui component patterns
 - `ui-ux-pro-max.mdc` — UX audit checklist
-- `gsap.mdc` — animation patterns
+
+### Design Quality Standards
+- `impeccable-taste.mdc` — spacing, typography, color, and quality checklist
+- `huashu-design.mdc` — anti-AI-slop rules, color systems, iterative design workflow
+- `emil-kowalski.mdc` — micro-interactions, hover states, spring animations, press feedback
+
+### Components & Animations
+- `shadcn.mdc` — shadcn/ui component patterns
+- `gsap.mdc` — GSAP animation patterns and ScrollTrigger
+
+### Testing
+- `playwright.mdc` — end-to-end testing with Playwright (accessibility-first selectors, no arbitrary waits)

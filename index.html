@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,19 +14,6 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page-home">
-
-  <!-- Global decorative layer. Edit each item by its position/color class. -->
-  <div class="page-decor" aria-hidden="true">
-    <span class="page-decor__circle page-decor__circle--01 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
-    <span class="page-decor__circle page-decor__circle--02 page-decor__circle--right page-decor__circle--emerald page-decor__circle--watermark"></span>
-    <span class="page-decor__circle page-decor__circle--03 page-decor__circle--left page-decor__circle--lime page-decor__circle--watermark"></span>
-    <span class="page-decor__circle page-decor__circle--04 page-decor__circle--right page-decor__circle--lime page-decor__circle--solid"></span>
-    <span class="page-decor__circle page-decor__circle--05 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
-    <span class="page-decor__circle page-decor__circle--06 page-decor__circle--left page-decor__circle--emerald page-decor__circle--watermark"></span>
-    <span class="page-decor__circle page-decor__circle--07 page-decor__circle--right page-decor__circle--emerald page-decor__circle--solid"></span>
-    <span class="page-decor__circle page-decor__circle--09 page-decor__circle--left page-decor__circle--lime page-decor__circle--solid"></span>
-    <span class="page-decor__circle page-decor__circle--10 page-decor__circle--right page-decor__circle--lime page-decor__circle--watermark"></span>
-  </div>
 
   <!-- NAVIGATION -->
   <header class="site-header" id="site-header">
@@ -44,13 +31,14 @@
         <li><a href="./" class="nav__link nav__link--active" aria-current="page">Home</a></li>
         <li><a href="about/" class="nav__link">About</a></li>
         <li class="nav__item--dropdown">
-          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-            How We Help <i data-lucide="chevron-down" aria-hidden="true"></i>
+          <a href="how-we-help/" class="nav__link">How We Help</a>
+          <button class="nav__dropdown-chevron" aria-expanded="false" aria-haspopup="true" aria-label="How We Help submenu">
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
           </button>
           <ul class="nav__dropdown" role="list">
-            <li><a href="how-we-help/our-approach/" class="nav__dropdown-link">Our Approach</a></li>
-            <li><a href="how-we-help/learning-design-and-delivery/" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
-            <li><a href="how-we-help/learning-tools/" class="nav__dropdown-link">Learning Tools</a></li>
+            <li><a href="how-we-help/#our-approach" class="nav__dropdown-link">Our Approach</a></li>
+            <li><a href="how-we-help/#learning-design-and-delivery" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
+            <li><a href="how-we-help/#learning-tools" class="nav__dropdown-link">Learning Tools</a></li>
           </ul>
         </li>
         <li><a href="learning-we-trust/" class="nav__link">Learning We Trust</a></li>
@@ -60,10 +48,14 @@
     </nav>
   </header>
 
-  <main>
+  <main data-decor-palette="base"
+        data-decor-density="auto"
+        data-decor-override-1="color:emerald"
+        data-decor-override-2="color:lime"
+        data-decor-override-5="color:purple">
 
     <!-- HERO -->
-    <section class="hero" aria-label="Hero">
+    <section class="hero" aria-label="Hero" data-decor-bg="offwhite">
       <div class="hero__slider" aria-hidden="true">
         <div class="hero__slide"
              data-slide-img="assets/images/photos/other-1.JPG"
@@ -81,14 +73,14 @@
           <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
           <div class="hero__ctas">
             <a href="contact/" class="btn btn--primary hero__cta-primary">Work with us</a>
-            <a href="how-we-help/our-approach/" class="btn btn--outline-light">Explore our approach</a>
+            <a href="how-we-help/#our-approach" class="btn btn--outline-light">Explore our approach</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════ YOU + WE -->
-    <section class="you-we" aria-label="What you bring, what we bring">
+    <section class="you-we" aria-label="What you bring, what we bring" data-decor-bg="offwhite">
       <div class="container">
         <header class="you-we__statement">
           <p>We partner with you to design and deliver learning that not only <strong>lifts capability</strong> but <strong>engages and excites your people.</strong></p>
@@ -112,7 +104,7 @@
       </div>
     </section>
     <!-- VIDEO -->
-    <section class="video-section" aria-label="The Learning Warehouse video">
+    <section class="video-section" aria-label="The Learning Warehouse video" data-decor-bg="navy">
       <div class="container video-section__inner">
         <div class="video-frame">
           <button class="video-frame__play" type="button" aria-label="Play video">
@@ -123,7 +115,7 @@
     </section>
 
     <!-- HOW WE HELP -->
-    <section class="how-we-help section" aria-labelledby="how-we-help-title">
+    <section class="how-we-help section" aria-labelledby="how-we-help-title" data-decor-bg="offwhite">
       <div class="container">
         <header class="section-header">
           <span class="overline">What we do</span>
@@ -138,7 +130,7 @@
               </div>
               <h3 class="card__title">LEARNING DESIGN &amp; DELIVERY</h3>
               <p>We work with teams to design and deliver learning that supports organisational priorities, strengthens capability, and leads to measurable change. From developing whole-of-organisation learning strategies to executing targeted professional development with you, our approach is always intentional and practical.</p>
-              <a href="how-we-help/learning-design-and-delivery/" class="btn btn--ghost card__cta">
+              <a href="how-we-help/#learning-design-and-delivery" class="btn btn--ghost card__cta">
                 LEARN MORE <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
             </article>
@@ -149,7 +141,7 @@
               </div>
               <h3 class="card__title">LEARNING TOOLS</h3>
               <p>Outcomes first. Tools in service of them.<br>To succeed, great learning needs great tools. We use and provide learning platforms, tools and resources, that we trust, to support learning.</p>
-              <a href="how-we-help/learning-tools/" class="btn btn--primary card__cta">
+              <a href="how-we-help/#learning-tools" class="btn btn--primary card__cta">
                 LEARN MORE <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
             </article>
@@ -160,7 +152,7 @@
     </section>
 
     <!-- PARTNERS -->
-    <section class="partners section" aria-labelledby="partners-title">
+    <section class="partners section" aria-labelledby="partners-title" data-decor-bg="offwhite">
       <div class="container partners__header">
         <h2 id="partners-title">WHO WE PARTNER WITH</h2>
         <p class="partners__lead">We partner with decision-makers across education and corporate environments who need confidence that their investment in learning will translate into real-world capability.</p>
@@ -189,7 +181,7 @@
     </section>
 
     <!-- CTA BANNER -->
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner" aria-labelledby="cta-title" data-decor-bg="navy">
       <div class="container cta-banner__inner">
         <p id="cta-title" class="cta-banner__text">
           IF YOU'RE READY TO DESIGN LEARNING THAT LEADS TO REAL CHANGE, <em>LET'S CHAT.</em>
@@ -216,9 +208,9 @@
         <div class="footer__col">
           <h3 class="footer__col-title">Working With Us</h3>
           <ul role="list">
-            <li><a href="how-we-help/our-approach/">Our Approach</a></li>
-            <li><a href="how-we-help/learning-design-and-delivery/">Our Design &amp; Delivery</a></li>
-            <li><a href="how-we-help/learning-tools/">Our Tools</a></li>
+            <li><a href="how-we-help/#our-approach">Our Approach</a></li>
+            <li><a href="how-we-help/#learning-design-and-delivery">Our Design &amp; Delivery</a></li>
+            <li><a href="how-we-help/#learning-tools">Our Tools</a></li>
           </ul>
         </div>
         <div class="footer__col">
