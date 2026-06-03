@@ -990,12 +990,16 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 .hero__cta-primary {
-  background: var(--color-lime);
-  color: var(--text-on-action);
+  background: var(--color-emerald);
+  color: var(--color-offwhite);
 }
 
 .hero__cta-primary:hover {
-  background: var(--action-primary-hover);
+  background: color-mix(in srgb, var(--color-emerald) 88%, black);
+}
+
+.hero__cta-primary:active {
+  background: color-mix(in srgb, var(--color-emerald) 78%, black);
 }
 
 .hero .btn {
@@ -1072,9 +1076,9 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--space-6);
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  column-gap: clamp(40px, 6vw, 88px);
+  align-items: stretch;
   row-gap: 0;
 }
 
@@ -1084,12 +1088,26 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-6);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: min(100%, 28rem);
+  justify-self: center;
 }
 
-.you-we__list--left { grid-column: 2 / span 4; }
-.you-we__divider { grid-column: 6 / span 2; align-self: stretch; display: flex; align-items: stretch; justify-content: center; }
-.you-we__list--right { grid-column: 8 / span 5; }
+.you-we__list--left,
+.you-we__list--right {
+  grid-column: auto;
+}
+
+.you-we__divider {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 2px;
+}
 
 .you-we__item {
   font-family: var(--font-heading);
@@ -1098,6 +1116,8 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   color: var(--text-primary);
   line-height: 1.4;
   letter-spacing: -0.005em;
+  width: 100%;
+  max-width: none;
 }
 
 .you-we__list--right .you-we__item {
@@ -1156,7 +1176,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 
 @media (max-width: 640px) {
   .you-we__list {
-    gap: var(--space-4);
+    gap: var(--space-5);
   }
 
   .you-we__item {
@@ -1755,6 +1775,115 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 .footer__email:hover { color: var(--color-lime); }
+
+.modal-open {
+  overflow: hidden;
+}
+
+.site-modal[hidden] {
+  display: none;
+}
+
+.site-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+.site-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 22, 54, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.site-modal__dialog {
+  position: relative;
+  width: min(100%, 48rem);
+  max-height: min(85vh, 52rem);
+  overflow: auto;
+  border: 1px solid rgba(18, 22, 54, 0.12);
+  border-radius: var(--radius-xl);
+  background: var(--color-offwhite);
+  color: var(--color-navy);
+  box-shadow: 0 1.5rem 4rem rgba(18, 22, 54, 0.24);
+  padding: var(--space-6);
+}
+
+.site-modal__dialog:focus-visible {
+  outline: 3px solid var(--color-lime);
+  outline-offset: 4px;
+}
+
+.site-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.site-modal__eyebrow {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-emerald);
+}
+
+.site-modal__title {
+  margin: 0;
+}
+
+.site-modal__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(18, 22, 54, 0.16);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.site-modal__close:hover {
+  transform: translateY(-1px);
+  border-color: rgba(18, 22, 54, 0.3);
+  background: rgba(18, 22, 54, 0.04);
+}
+
+.site-modal__close:focus-visible {
+  outline: 3px solid var(--color-lime);
+  outline-offset: 3px;
+}
+
+.site-modal__body {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.site-modal__body h3,
+.site-modal__body p {
+  margin: 0;
+}
+
+.site-modal__body h3 {
+  font-size: var(--text-lg);
+}
+
+.site-modal__body a {
+  color: var(--color-emerald);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
 
 .footer__bottom {
   border-top: 1px solid rgba(247, 244, 238, 0.14);

@@ -115,6 +115,91 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMobileNav()
   })
 
+  const heroSliderUtils = window.TWHHeroSliderUtils || {
+    hasEnoughSlidesToAutoplay: readyStates => readyStates.filter(Boolean).length > 1,
+    getNextReadySlideIndex: (currentIndex, readyStates) => {
+      if (!Array.isArray(readyStates) || readyStates.length === 0) return -1
+
+      for (let step = 1; step <= readyStates.length; step++) {
+        const nextIndex = (currentIndex + step) % readyStates.length
+        if (readyStates[nextIndex]) return nextIndex
+      }
+
+      return currentIndex
+    }
+  }
+
+  const privacyPolicyUtils = window.TWHPrivacyPolicyUtils || {
+    buildPrivacyPolicyContent: () => ''
+  }
+
+  /*  Shared privacy policy modal  */
+  const privacyPolicyTriggers = Array.from(document.querySelectorAll('[data-modal-trigger="privacy-policy"]'))
+  if (privacyPolicyTriggers.length > 0) {
+    const modal = document.createElement('div')
+    modal.className = 'site-modal'
+    modal.id = 'privacy-policy-modal'
+    modal.setAttribute('hidden', '')
+    modal.innerHTML = `
+      <div class="site-modal__backdrop" data-modal-close="privacy-policy"></div>
+      <div class="site-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-policy-title" tabindex="-1">
+        <div class="site-modal__header">
+          <div>
+            <p class="site-modal__eyebrow">Privacy Policy</p>
+            <h2 class="site-modal__title" id="privacy-policy-title">How we handle website enquiries</h2>
+          </div>
+          <button class="site-modal__close" type="button" aria-label="Close privacy policy" data-modal-close="privacy-policy">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="site-modal__body">
+          ${privacyPolicyUtils.buildPrivacyPolicyContent()}
+        </div>
+      </div>
+    `
+
+    document.body.appendChild(modal)
+    if (typeof lucide !== 'undefined') lucide.createIcons()
+
+    const dialog = modal.querySelector('.site-modal__dialog')
+    const closeButtons = modal.querySelectorAll('[data-modal-close="privacy-policy"]')
+    let lastFocusedElement = null
+
+    const closePrivacyPolicyModal = () => {
+      modal.setAttribute('hidden', '')
+      document.body.classList.remove('modal-open')
+      lastFocusedElement?.focus()
+    }
+
+    const openPrivacyPolicyModal = trigger => {
+      lastFocusedElement = trigger
+      modal.removeAttribute('hidden')
+      document.body.classList.add('modal-open')
+      dialog.focus()
+    }
+
+    privacyPolicyTriggers.forEach(trigger => {
+      trigger.addEventListener('click', event => {
+        event.preventDefault()
+        openPrivacyPolicyModal(trigger)
+      })
+    })
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', closePrivacyPolicyModal)
+    })
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closePrivacyPolicyModal()
+    })
+
+    window.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !modal.hasAttribute('hidden')) {
+        closePrivacyPolicyModal()
+      }
+    })
+  }
+
   /*  Hero slider — load background images (always)  */
   const heroSlides = Array.from(document.querySelectorAll('.hero__slide'))
   heroSlides.forEach(el => {
@@ -222,29 +307,119 @@ document.addEventListener('DOMContentLoaded', () => {
       y: 16, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
     }, '-=0.4')
 
-  /*  Hero slider — Ken Burns + crossfade  */
-  if (heroSlides.length > 0) {
-    const SLIDE_DURATION = 7
-    const FADE_DURATION  = 1.5
-    const START_SCALE    = 1.12
-    const END_SCALE      = 1.0
+    /*  Hero slider — Ken Burns + crossfade  */
+    if (heroSlides.length > 0) {
+      const SLIDE_DURATION = 7
+      const FADE_DURATION  = 1.5
+      const START_SCALE    = 1.12
+      const END_SCALE      = 1.0
+      const heroSlideReadyStates = heroSlides.map(() => false)
+      let activeSlideIndex = 0
+      let sliderTimerId = null
+      let activeSlideTween = null
+      let isTransitioning = false
 
-    const animateSlide = (slide, isFirst = false) => {
-      const tl = gsap.timeline()
-      tl.fromTo(slide,
-        { opacity: isFirst ? 1 : 0, scale: START_SCALE },
-        { opacity: 1, duration: isFirst ? 0 : FADE_DURATION, ease: 'power2.out' }, 0)
-      tl.to(slide, { scale: END_SCALE, duration: SLIDE_DURATION + FADE_DURATION, ease: 'none' }, 0)
-      tl.to(slide, { opacity: 0, duration: FADE_DURATION, ease: 'power2.in' }, SLIDE_DURATION)
+      const preloadHeroImage = url => new Promise(resolve => {
+        if (!url) {
+          resolve(false)
+          return
+        }
+
+        const img = new Image()
+        let isResolved = false
+
+        const finish = status => {
+          if (isResolved) return
+          isResolved = true
+          resolve(status)
+        }
+
+        const decodeIfPossible = () => {
+          if (typeof img.decode === 'function') {
+            return img.decode().catch(() => {})
+          }
+          return Promise.resolve()
+        }
+
+        img.onload = () => {
+          decodeIfPossible().finally(() => finish(true))
+        }
+        img.onerror = () => finish(false)
+        img.decoding = 'async'
+        img.src = url
+
+        if (img.complete) {
+          decodeIfPossible().finally(() => finish(true))
+        }
+      })
+
+      const stopSliderTimer = () => {
+        if (sliderTimerId) {
+          window.clearTimeout(sliderTimerId)
+          sliderTimerId = null
+        }
+      }
+
+      const startActiveSlideMotion = () => {
+        if (activeSlideTween) activeSlideTween.kill()
+        activeSlideTween = gsap.fromTo(heroSlides[activeSlideIndex],
+          { scale: START_SCALE },
+          { scale: END_SCALE, duration: SLIDE_DURATION + FADE_DURATION, ease: 'none', overwrite: true })
+      }
+
+      const scheduleNextTransition = () => {
+        stopSliderTimer()
+
+        if (reducedMotion) return
+        if (!heroSliderUtils.hasEnoughSlidesToAutoplay(heroSlideReadyStates)) return
+
+        sliderTimerId = window.setTimeout(() => {
+          if (isTransitioning) return
+
+          const nextSlideIndex = heroSliderUtils.getNextReadySlideIndex(activeSlideIndex, heroSlideReadyStates)
+          if (nextSlideIndex < 0 || nextSlideIndex === activeSlideIndex) {
+            scheduleNextTransition()
+            return
+          }
+
+          const currentSlide = heroSlides[activeSlideIndex]
+          const nextSlide = heroSlides[nextSlideIndex]
+
+          isTransitioning = true
+          if (activeSlideTween) activeSlideTween.kill()
+
+          gsap.killTweensOf([currentSlide, nextSlide])
+          gsap.set(nextSlide, { opacity: 0, scale: START_SCALE })
+
+          gsap.timeline({
+            defaults: { overwrite: true },
+            onComplete: () => {
+              gsap.set(currentSlide, { opacity: 0, scale: START_SCALE })
+              activeSlideIndex = nextSlideIndex
+              isTransitioning = false
+              startActiveSlideMotion()
+              scheduleNextTransition()
+            }
+          })
+            .to(currentSlide, { opacity: 0, duration: FADE_DURATION, ease: 'power2.inOut' }, 0)
+            .fromTo(nextSlide,
+              { opacity: 0, scale: START_SCALE },
+              { opacity: 1, scale: END_SCALE, duration: FADE_DURATION, ease: 'power2.out' }, 0)
+        }, SLIDE_DURATION * 1000)
+      }
+
+      gsap.set(heroSlides, { opacity: 0, scale: START_SCALE })
+      gsap.set(heroSlides[activeSlideIndex], { opacity: 1, scale: START_SCALE })
+      startActiveSlideMotion()
+
+      heroSlides.forEach((slide, index) => {
+        const url = slide.dataset.slideImg
+        preloadHeroImage(url).then(isReady => {
+          heroSlideReadyStates[index] = isReady
+          if (isReady && !reducedMotion) scheduleNextTransition()
+        })
+      })
     }
-
-    let idx = 0
-    animateSlide(heroSlides[0], true)
-    setInterval(() => {
-      idx = (idx + 1) % heroSlides.length
-      animateSlide(heroSlides[idx])
-    }, SLIDE_DURATION * 1000)
-  }
 
   /*  You + We  */
   gsap.from('.you-we__statement', {
