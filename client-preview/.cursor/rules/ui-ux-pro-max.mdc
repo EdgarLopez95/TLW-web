@@ -1,0 +1,45 @@
+---
+description: UI/UX audit checklist — hierarchy, interaction, accessibility, responsive, performance
+alwaysApply: false
+---
+
+# UI/UX Pro Max
+
+## Review Checklist
+
+### Visual Hierarchy
+- [ ] Primary action is the most visually prominent element
+- [ ] Text sizes follow a clear scale (not arbitrary pixel values)
+- [ ] Whitespace is intentional — breathing room, not filler
+- [ ] Color draws attention only to what matters
+
+### Interaction Design
+- [ ] Every interactive element has a visible hover, focus, and active state
+- [ ] Loading states exist for all async operations
+- [ ] Empty states are designed (not blank screens)
+- [ ] Error states give the user a path forward
+
+### Accessibility (WCAG 2.1 AA minimum)
+- [ ] Color contrast ratio ≥ 4.5:1 for body text, ≥ 3:1 for large text
+- [ ] All interactive elements are keyboard-navigable
+- [ ] Focus ring is always visible (never `outline: none` without a replacement)
+- [ ] Images have meaningful alt text; decorative images have `alt=""`
+- [ ] Form inputs have associated `<label>` elements
+
+### Responsive Design
+- [ ] Mobile-first: design for 375px, then scale up
+- [ ] Touch targets are ≥ 44×44px on mobile
+- [ ] No horizontal scroll at any breakpoint
+- [ ] Typography is readable without zoom at 320px
+
+### Performance UX
+- [ ] Above-the-fold content loads first (LCP < 2.5s)
+- [ ] No layout shift on load (CLS < 0.1)
+- [ ] Skeleton screens preferred over spinners for content areas
+
+## Output Format
+When reviewing, output:
+1. **Critical issues** (blocks usability) — fix immediately
+2. **Major issues** (degrades experience) — fix in this sprint
+3. **Minor improvements** (polish) — address when possible
+4. **What's working well** — so it doesn't accidentally get changed
