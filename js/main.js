@@ -211,21 +211,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form')
   if (contactForm) {
     const statusEl = document.getElementById('contact-form-status')
+    const contactFormUtils = window.TWHContactFormUtils || {}
+    const buildContactPayload = contactFormUtils.buildContactPayload || (values => values)
+    const validateContactValues = contactFormUtils.validateContactValues || (() => ({}))
+    const getContactStatusMessage = contactFormUtils.getContactStatusMessage || (status => status)
     const fields = [
       {
-        id: 'contact-name',
-        validate: value => value.trim() ? '' : 'Add your name.'
+        id: 'contact-name'
       },
       {
-        id: 'contact-email',
-        validate: value => {
-          if (!value.trim()) return 'Enter your email.'
-          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? '' : 'Enter a valid email address.'
-        }
+        id: 'contact-email'
       },
       {
-        id: 'contact-message',
-        validate: value => value.trim() ? '' : 'Share a short message so we know how to help.'
+        id: 'contact-message'
       }
     ]
 
@@ -235,10 +233,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (errorEl) errorEl.textContent = message
     }
 
+    const getCurrentContactValues = () => buildContactPayload({
+      name: document.getElementById('contact-name')?.value,
+      organisation: document.getElementById('contact-organisation')?.value,
+      email: document.getElementById('contact-email')?.value,
+      message: document.getElementById('contact-message')?.value
+    })
+
+    const applyValidationState = errors => {
+      fields.forEach(field => {
+        const fieldEl = document.getElementById(field.id)
+        if (!fieldEl) return
+        setFieldError(fieldEl, errors[field.id] || '')
+      })
+    }
+
     const validateField = field => {
       const fieldEl = document.getElementById(field.id)
       if (!fieldEl) return true
-      const message = field.validate(fieldEl.value)
+      const errors = validateContactValues(getCurrentContactValues())
+      const message = errors[field.id] || ''
       setFieldError(fieldEl, message)
       return !message
     }
@@ -258,33 +272,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitBtn = contactForm.querySelector('.contact-form__submit')
 
-    contactForm.addEventListener('submit', e => {
+    contactForm.addEventListener('submit', async e => {
       e.preventDefault()
-      const isValid = fields.every(validateField)
+      const payload = getCurrentContactValues()
+      const errors = validateContactValues(payload)
+      applyValidationState(errors)
+      const isValid = Object.keys(errors).length === 0
+
       if (!isValid) {
-        statusEl.textContent = 'Please correct the highlighted fields and try again.'
+        statusEl.textContent = getContactStatusMessage('invalid')
         const firstInvalid = contactForm.querySelector('[aria-invalid="true"]')
         firstInvalid?.focus()
         return
       }
 
       const originalText = submitBtn.textContent
+      const endpoint = contactForm.getAttribute('data-contact-endpoint') || contactForm.getAttribute('action')
       submitBtn.setAttribute('data-loading', '')
       submitBtn.textContent = 'Sending…'
       submitBtn.disabled = true
       statusEl.textContent = ''
 
-      setTimeout(() => {
+      try {
+        const response = await window.fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+
+        const result = await response.json().catch(() => null)
+        const backendErrors = result?.errors && typeof result.errors === 'object' ? result.errors : null
+
+        if (backendErrors) {
+          applyValidationState(backendErrors)
+        }
+
+        if (!response.ok || !result?.ok) {
+          const statusKey = result?.status || 'server'
+          statusEl.textContent = result?.message || getContactStatusMessage(statusKey)
+          const firstInvalid = contactForm.querySelector('[aria-invalid="true"]')
+          firstInvalid?.focus()
+          return
+        }
+
+        statusEl.textContent = result.message || getContactStatusMessage('success')
+        contactForm.reset()
+        applyValidationState({})
+      } catch (error) {
+        statusEl.textContent = getContactStatusMessage('network')
+      } finally {
         submitBtn.removeAttribute('data-loading')
         submitBtn.textContent = originalText
         submitBtn.disabled = false
-        statusEl.textContent = 'Thanks. We received your message and will get back to you in the next 24 hours.'
-        contactForm.reset()
-        fields.forEach(field => {
-          const fieldEl = document.getElementById(field.id)
-          if (fieldEl) setFieldError(fieldEl, '')
-        })
-      }, 1200)
+      }
     })
   }
 

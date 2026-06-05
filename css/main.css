@@ -2691,9 +2691,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(199, 241, 54, 0.12), transparent 50%),
-    radial-gradient(circle at 88% 82%, rgba(180, 154, 253, 0.12), transparent 55%);
+  background: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -3047,10 +3045,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-values__close {
   margin-top: var(--space-16);
   position: relative;
-  background:
-    radial-gradient(ellipse at 12% 18%, rgba(199, 241, 54, 0.13) 0%, transparent 52%),
-    radial-gradient(ellipse at 88% 82%, rgba(180, 154, 253, 0.11) 0%, transparent 48%),
-    var(--color-navy);
+  background: var(--color-navy);
   border-radius: var(--radius-xl);
   padding: clamp(40px, 6vw, 72px) clamp(32px, 6vw, 80px);
   overflow: hidden;
@@ -3065,10 +3060,10 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-values__close::before {
   content: '\201C';
   position: absolute;
-  top: -0.18em;
-  right: -0.02em;
+  top: 0.08em;
+  right: 0.12em;
   font-family: var(--font-heading);
-  font-size: clamp(220px, 26vw, 380px);
+  font-size: clamp(120px, 14vw, 200px);
   font-weight: 900;
   line-height: 1;
   color: rgba(199, 241, 54, 0.07);
@@ -3288,10 +3283,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-tools-cta {
   margin-top: var(--space-8);
   position: relative;
-  background:
-    radial-gradient(ellipse at 12% 18%, rgba(199, 241, 54, 0.13) 0%, transparent 52%),
-    radial-gradient(ellipse at 88% 82%, rgba(180, 154, 253, 0.11) 0%, transparent 48%),
-    var(--color-navy);
+  background: var(--color-navy);
   border-radius: var(--radius-xl);
   padding: clamp(34px, 5.2vw, 64px) clamp(26px, 5.2vw, 72px);
   overflow: hidden;
@@ -3308,10 +3300,10 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-tools-cta::before {
   content: '\201C';
   position: absolute;
-  top: -0.18em;
-  right: -0.02em;
+  top: 0.08em;
+  right: 0.12em;
   font-family: var(--font-heading);
-  font-size: clamp(220px, 26vw, 380px);
+  font-size: clamp(120px, 14vw, 200px);
   font-weight: 900;
   line-height: 1;
   color: rgba(199, 241, 54, 0.07);
@@ -3489,17 +3481,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 .hwh-split--ldd .hwh-list__item--ldd::before {
-  content: attr(data-step);
-  position: absolute;
-  right: var(--space-3);
-  bottom: -0.16em;
-  font-family: var(--font-heading);
-  font-size: clamp(42px, 5vw, 72px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: rgba(23, 23, 57, 0.08);
-  pointer-events: none;
+  content: none;
 }
 
 .hwh-split--ldd .hwh-list__item--ldd::after {
@@ -3925,10 +3907,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-caps__outro {
   margin-top: var(--space-16);
   position: relative;
-  background:
-    radial-gradient(ellipse at 12% 18%, rgba(199, 241, 54, 0.13) 0%, transparent 52%),
-    radial-gradient(ellipse at 88% 82%, rgba(180, 154, 253, 0.11) 0%, transparent 48%),
-    var(--color-navy);
+  background: var(--color-navy);
   border-radius: var(--radius-xl);
   padding: clamp(40px, 6vw, 72px) clamp(28px, 6vw, 80px);
   overflow: hidden;
@@ -3939,10 +3918,10 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 .hwh-caps__outro::before {
   content: '\201C';
   position: absolute;
-  top: -0.18em;
-  right: -0.02em;
+  top: 0.08em;
+  right: 0.12em;
   font-family: var(--font-heading);
-  font-size: clamp(220px, 26vw, 380px);
+  font-size: clamp(120px, 14vw, 200px);
   font-weight: 900;
   line-height: 1;
   color: rgba(199, 241, 54, 0.07);
@@ -4254,10 +4233,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   align-items: center;
   gap: var(--space-5);
   padding: var(--space-6);
-  background:
-    radial-gradient(ellipse at 12% 18%, rgba(199, 241, 54, 0.13) 0%, transparent 52%),
-    radial-gradient(ellipse at 88% 82%, rgba(180, 154, 253, 0.11) 0%, transparent 48%),
-    var(--color-navy);
+  background: var(--color-navy);
   border-radius: var(--radius-xl);
   color: var(--color-offwhite);
   text-decoration: none;
