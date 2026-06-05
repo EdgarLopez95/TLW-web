@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found &mdash; The Learning Warehouse</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/images/logos/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#096C29">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/aptos-regular.woff2?v=20260605" crossorigin>
+  <link rel="stylesheet" href="/css/main.css?v=20260605">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-6);
+      padding: var(--space-16) var(--space-5);
+    }
+    .error-page__logo { margin-bottom: var(--space-4); }
+    .error-page__code {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(72px, 18vw, 144px);
+      line-height: 1;
+      color: var(--color-emerald);
+      letter-spacing: -0.02em;
+    }
+    .error-page__title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .error-page__lead {
+      max-width: 48ch;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="page-error">
+  <main class="error-page">
+    <a class="error-page__logo" href="/" aria-label="The Learning Warehouse - Home">
+      <img src="/assets/images/logos/twh-logo-primary.svg" alt="The Learning Warehouse" width="180" height="48">
+    </a>
+    <p class="error-page__code">404</p>
+    <h1 class="error-page__title">We can&rsquo;t find that page.</h1>
+    <p class="error-page__lead">The page you&rsquo;re looking for may have moved or no longer exists. Let&rsquo;s get you back on track.</p>
+    <a class="btn btn--primary" href="/">Back to home</a>
+  </main>
+</body>
+</html>
