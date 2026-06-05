@@ -10,3 +10,4 @@ desktop.ini
 
 # Logs
 *.log
+config/contact-mailer.config.php
