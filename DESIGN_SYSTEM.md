@@ -1,10 +1,19 @@
 # The Learning Warehouse — Design System
 
-**Stack:** HTML + CSS (custom properties). Mobile-first. **Iconos:** Lucide, stroke 1.5px. **Fuentes:** Montserrat (headings/UI) + Inter (body) — Google Fonts.
+**Stack:** HTML + CSS (custom properties). Mobile-first. **Iconos:** Lucide, stroke 1.5px. **Fuentes:** Montserrat (headings/UI) — Google Fonts · **Aptos** (body) — fuente de marca de Microsoft.
 
 ```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+```
+
+> **Aptos autoalojada** en `assets/fonts/` (woff2). Se sirven solo los pesos que usa el body: **400 (regular)**, **400 italic** y **700 (bold / `strong`)**. `font-weight: 500` (líneas "resume" de las bios) resuelve a 400 — Aptos estático no tiene un peso Medium. El stack `--font-body` cae a `Segoe UI` → `system-ui` si el woff2 no cargara. El peso 400 se **precarga** con `<link rel="preload" as="font" type="font/woff2" crossorigin>` en cada `<head>` (rutas relativas según la profundidad de la página).
+
+```css
+@font-face { font-family:'Aptos'; src:url('../assets/fonts/aptos-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Aptos'; src:url('../assets/fonts/aptos-italic.woff2')  format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Aptos'; src:url('../assets/fonts/aptos-bold.woff2')    format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
 ```
 
 ## 1. Tokens de Color
@@ -50,7 +59,7 @@
 ```css
 :root {
   --font-heading: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Aptos', 'Aptos Display', 'Segoe UI', system-ui, sans-serif;
 }
 ```
 
@@ -69,7 +78,7 @@
 | `--type-button` | heading | 600 | 16px | 1 | 0.01em | Botones |
 | `--type-nav` | heading | 500 | 15→16px | 1 | 0.01em | Nav links |
 
-✅ `h2 { font-family: var(--font-heading); }`  ❌ `<h2 style="font-family:'Inter';">` (Inter solo body)
+✅ `h2 { font-family: var(--font-heading); }`  ❌ `<h2 style="font-family:'Aptos';">` (Aptos solo body)
 
 ## 3. Espaciado
 

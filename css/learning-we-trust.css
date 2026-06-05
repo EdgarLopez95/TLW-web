@@ -1,0 +1,365 @@
+/* ═══════════════════════════════════════════════════════════
+   LEARNING WE TRUST PAGE
+   Depends on css/main.css (shared base: tokens, reset, nav, footer).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   19. LEARNING WE TRUST PAGE
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 19.1 HERO ─────────────────────────────────────────── */
+.lwt-hero {
+  position: relative;
+  background:
+    radial-gradient(circle at 72% 10%, rgba(199, 241, 54, 0.11), transparent 46%),
+    radial-gradient(circle at 14% 88%, rgba(180, 154, 253, 0.10), transparent 50%),
+    var(--color-emerald);
+  color: var(--color-offwhite);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lwt-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin-inline: auto;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .lwt-hero__inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lwt-hero__inner {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
+.lwt-hero__overline {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+}
+
+.lwt-hero__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--color-offwhite);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.lwt-hero__title-accent {
+  color: var(--color-lime);
+  font-style: normal;
+}
+
+.lwt-hero__lead {
+  max-width: 640px;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: rgba(247, 244, 238, 0.86);
+  margin: 0;
+}
+
+/* ─── 19.2 TRUST NETWORK SECTION ────────────────────────── */
+.lwt-network {
+  background: var(--bg-page);
+  position: relative;
+  padding-bottom: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .lwt-network {
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lwt-network {
+    padding-bottom: var(--space-24);
+  }
+}
+
+.lwt-network .container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── 19.3 SUBSECTION BASE LAYOUT ───────────────────────── */
+.lwt-sub {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  padding-block: var(--space-16);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.lwt-sub:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .lwt-sub {
+    padding-block: var(--space-20);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lwt-sub {
+    grid-template-columns: clamp(240px, 28%, 320px) 1fr;
+    gap: clamp(48px, 7vw, 104px);
+    align-items: start;
+    padding-block: var(--space-24);
+  }
+}
+
+.lwt-sub__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 1024px) {
+  .lwt-sub__header {
+    position: sticky;
+    top: calc(var(--site-header-height) + var(--space-10));
+  }
+}
+
+.lwt-sub__title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-emerald);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.lwt-sub__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.lwt-sub__lead {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.lwt-sub__para {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.lwt-sub__cta {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+
+/* ─── 19.4 LOGOS GRID ───────────────────────────────────── */
+.lwt-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.lwt-logo-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5) var(--space-8);
+  background: var(--bg-card);
+  border: var(--border-default);
+  border-radius: var(--radius-lg);
+  min-height: 80px;
+  min-width: 140px;
+  transition:
+    transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 200ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lwt-logo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-overlay);
+    border-color: rgba(9, 108, 41, 0.28);
+  }
+}
+
+.lwt-logo-card:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+.lwt-logo-card img {
+  max-width: 140px;
+  max-height: 52px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: filter 200ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lwt-logo-card:hover img {
+    filter: grayscale(0);
+  }
+}
+
+/* Placeholder state (before client provides logos) */
+.lwt-logos__placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-8);
+  background: var(--bg-muted);
+  border: 1px dashed var(--color-border-default);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-disabled);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.lwt-logos__placeholder svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+/* ─── 19.5 RESOURCE CARD (Learning we're loving) ────────── */
+.lwt-resource-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: var(--color-navy);
+  border-radius: var(--radius-xl);
+  color: var(--color-offwhite);
+  text-decoration: none;
+  margin-top: var(--space-2);
+  transition:
+    transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (min-width: 640px) {
+  .lwt-resource-card {
+    padding: var(--space-8);
+    gap: var(--space-6);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lwt-resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(23, 23, 57, 0.22);
+  }
+}
+
+.lwt-resource-card:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+.lwt-resource-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.lwt-resource-card__icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  background: rgba(247, 244, 238, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lwt-resource-card__icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--color-lime);
+  stroke-width: 1.5;
+}
+
+.lwt-resource-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.lwt-resource-card__label {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-offwhite);
+}
+
+.lwt-resource-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-lime);
+  letter-spacing: 0.01em;
+}
+
+.lwt-resource-card__action svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2;
+  flex-shrink: 0;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lwt-resource-card:hover .lwt-resource-card__action svg {
+    transform: translate(3px, -3px);
+  }
+}
+

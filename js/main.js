@@ -200,10 +200,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  /*  Hero slider — load background images (always)  */
+  /*  Hero slider — load responsive background images (always)  */
+  const pickSlideSrc = el => {
+    const w = window.innerWidth
+    const d = el.dataset
+    if (w <= 768 && d.slideImgMobile) return d.slideImgMobile
+    if (w <= 1280 && d.slideImgTablet) return d.slideImgTablet
+    return d.slideImgDesktop || d.slideImg
+  }
+
   const heroSlides = Array.from(document.querySelectorAll('.hero__slide'))
   heroSlides.forEach(el => {
-    const url = el.dataset.slideImg
+    const url = pickSlideSrc(el)
     if (url) el.style.backgroundImage = `url('${url}')`
   })
 
@@ -366,19 +374,20 @@ document.addEventListener('DOMContentLoaded', () => {
       */
   if (typeof gsap === 'undefined' || reducedMotion) return
 
-  /*  Hero entrance  */
-  const heroTl = gsap.timeline({ delay: 0.2 })
+  if (document.body.classList.contains('page-home')) {
+    /*  Hero entrance  */
+    const heroTl = gsap.timeline({ delay: 0.2 })
 
-  heroTl
-    .from('.hero__title', {
-      y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
-    })
-    .from('.hero__lead', {
-      y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
-    }, '-=0.5')
-    .from('.hero__ctas .btn', {
-      y: 16, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
-    }, '-=0.4')
+    heroTl
+      .from('.hero__title', {
+        y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
+      })
+      .from('.hero__lead', {
+        y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
+      }, '-=0.5')
+      .from('.hero__ctas .btn', {
+        y: 16, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
+      }, '-=0.4')
 
     /*  Hero slider — Ken Burns + crossfade  */
     if (heroSlides.length > 0) {
@@ -494,34 +503,35 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
 
-  /*  You + We  */
-  gsap.from('.you-we__statement', {
-    scrollTrigger: { trigger: '.you-we', start: 'top 82%' },
-    y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
-  })
+    /*  You + We  */
+    gsap.from('.you-we__statement', {
+      scrollTrigger: { trigger: '.you-we', start: 'top 82%' },
+      y: 24, opacity: 0, duration: 0.7, ease: 'power2.out'
+    })
 
-  gsap.from('.you-we__list .you-we__item', {
-    scrollTrigger: { trigger: '.you-we__grid', start: 'top 85%' },
-    y: 16, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out'
-  })
+    gsap.from('.you-we__list .you-we__item', {
+      scrollTrigger: { trigger: '.you-we__grid', start: 'top 85%' },
+      y: 16, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out'
+    })
 
-  /*  Video section  */
-  gsap.from('.video-frame', {
-    scrollTrigger: { trigger: '.video-section', start: 'top 82%' },
-    y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
-  })
+    /*  Video section  */
+    gsap.from('.video-frame', {
+      scrollTrigger: { trigger: '.video-section', start: 'top 82%' },
+      y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
+    })
 
-  /*  Section header (how we help)  */
-  gsap.from('.how-we-help .section-header', {
-    scrollTrigger: { trigger: '.how-we-help', start: 'top 82%' },
-    y: 40, opacity: 0, duration: 0.8, ease: 'power2.out'
-  })
+    /*  Section header (how we help)  */
+    gsap.from('.how-we-help .section-header', {
+      scrollTrigger: { trigger: '.how-we-help', start: 'top 82%' },
+      y: 40, opacity: 0, duration: 0.8, ease: 'power2.out'
+    })
 
-  /*  Cards  */
-  gsap.from('.card--how', {
-    scrollTrigger: { trigger: '.cards-grid', start: 'top 82%' },
-    opacity: 0, duration: 0.8, stagger: 0.18, ease: 'power2.out'
-  })
+    /*  Cards  */
+    gsap.from('.card--how', {
+      scrollTrigger: { trigger: '.cards-grid', start: 'top 82%' },
+      opacity: 0, duration: 0.8, stagger: 0.18, ease: 'power2.out'
+    })
+  }
 
   /*  Global page decor: lively desktop-only motion.
       animateDecorCircles() is invoked from initPageDecor() after the circles
@@ -575,23 +585,24 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  /*  Partners heading  */
-  gsap.from('.partners__header > *', {
-    scrollTrigger: { trigger: '.partners', start: 'top 82%' },
-    y: 32, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out'
-  })
+  if (document.body.classList.contains('page-home')) {
+    /*  Partners heading  */
+    gsap.from('.partners__header > *', {
+      scrollTrigger: { trigger: '.partners', start: 'top 82%' },
+      y: 32, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out'
+    })
 
+    /*  CTA Banner  */
+    gsap.from('.cta-banner__text', {
+      scrollTrigger: { trigger: '.cta-banner', start: 'top 80%' },
+      y: 40, opacity: 0, duration: 0.9, ease: 'power2.out'
+    })
 
-  /*  CTA Banner  */
-  gsap.from('.cta-banner__text', {
-    scrollTrigger: { trigger: '.cta-banner', start: 'top 80%' },
-    y: 40, opacity: 0, duration: 0.9, ease: 'power2.out'
-  })
-
-  gsap.from('.cta-banner__btn', {
-    scrollTrigger: { trigger: '.cta-banner', start: 'top 76%' },
-    y: 20, opacity: 0, duration: 0.6, delay: 0.25, ease: 'power2.out'
-  })
+    gsap.from('.cta-banner__btn', {
+      scrollTrigger: { trigger: '.cta-banner', start: 'top 76%' },
+      y: 20, opacity: 0, duration: 0.6, delay: 0.25, ease: 'power2.out'
+    })
+  }
 
   /*  Footer  */
   gsap.from('.footer__brand, .footer__col', {
