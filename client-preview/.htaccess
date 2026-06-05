@@ -3,6 +3,9 @@
 
 DirectoryIndex index.html index.php
 
+# Custom error page
+ErrorDocument 404 /404.html
+
 # ─────────────────────────────────────────────────────────────
 # Compression
 # ─────────────────────────────────────────────────────────────
