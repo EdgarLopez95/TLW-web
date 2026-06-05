@@ -121,7 +121,13 @@
             <div class="contact-form__foot">
               <div class="contact-form__actions">
                 <button class="btn btn--primary contact-form__submit" type="submit">Send message</button>
-                <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
+                <div class="contact-form__status" id="contact-form-status" role="status" aria-live="polite" aria-atomic="true" data-tone="neutral" data-visible="false">
+                  <span class="contact-form__status-icon" aria-hidden="true"></span>
+                  <div class="contact-form__status-copy">
+                    <p class="contact-form__status-title"></p>
+                    <p class="contact-form__status-message"></p>
+                  </div>
+                </div>
               </div>
             </div>
 

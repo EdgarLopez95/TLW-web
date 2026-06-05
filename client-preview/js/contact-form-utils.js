@@ -34,21 +34,56 @@
   }
 
   function getContactStatusMessage (status) {
+    return getContactStatusState(status).message
+  }
+
+  function getContactStatusState (status) {
     const messages = {
-      invalid: 'Please correct the highlighted fields and try again.',
-      success: 'Thanks. We received your message and will get back to you in the next 24 hours.',
-      server: 'We could not send your message just now. Please try again shortly.',
-      network: 'We could not reach the server. Please check your connection and try again.',
-      setup: 'The contact form is still being set up. Please email us directly for now.'
+      invalid: {
+        tone: 'error',
+        title: 'Check the highlighted fields',
+        message: 'Please correct the highlighted fields and try again.',
+        dismissOnInput: false
+      },
+      success: {
+        tone: 'success',
+        title: 'Message sent',
+        message: 'Thanks. We received your message and will get back to you in the next 24 hours.',
+        dismissOnInput: true
+      },
+      server: {
+        tone: 'error',
+        title: 'Message not sent',
+        message: 'We could not send your message just now. Please try again shortly.',
+        dismissOnInput: false
+      },
+      network: {
+        tone: 'error',
+        title: 'Connection issue',
+        message: 'We could not reach the server. Please check your connection and try again.',
+        dismissOnInput: false
+      },
+      setup: {
+        tone: 'error',
+        title: 'Setup still in progress',
+        message: 'The contact form is still being set up. Please email us directly for now.',
+        dismissOnInput: false
+      }
     }
 
-    return messages[status] || 'Something went wrong while sending your message. Please try again.'
+    return messages[status] || {
+      tone: 'error',
+      title: 'Something went wrong',
+      message: 'Something went wrong while sending your message. Please try again.',
+      dismissOnInput: false
+    }
   }
 
   const api = {
     buildContactPayload,
     validateContactValues,
-    getContactStatusMessage
+    getContactStatusMessage,
+    getContactStatusState
   }
 
   global.TWHContactFormUtils = api
