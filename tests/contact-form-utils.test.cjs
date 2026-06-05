@@ -4,7 +4,8 @@ const assert = require('node:assert/strict')
 const {
   buildContactPayload,
   validateContactValues,
-  getContactStatusMessage
+  getContactStatusMessage,
+  getContactStatusState
 } = require('../js/contact-form-utils.js')
 
 test('buildContactPayload trims contact values', () => {
@@ -49,4 +50,22 @@ test('getContactStatusMessage falls back to the generic error copy', () => {
     getContactStatusMessage('unexpected-value'),
     'Something went wrong while sending your message. Please try again.'
   )
+})
+
+test('getContactStatusState returns a rich success state', () => {
+  assert.deepEqual(getContactStatusState('success'), {
+    tone: 'success',
+    title: 'Message sent',
+    message: 'Thanks. We received your message and will get back to you in the next 24 hours.',
+    dismissOnInput: true
+  })
+})
+
+test('getContactStatusState falls back to a generic error state', () => {
+  assert.deepEqual(getContactStatusState('unexpected-value'), {
+    tone: 'error',
+    title: 'Something went wrong',
+    message: 'Something went wrong while sending your message. Please try again.',
+    dismissOnInput: false
+  })
 })

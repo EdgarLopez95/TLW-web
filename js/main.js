@@ -215,6 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const buildContactPayload = contactFormUtils.buildContactPayload || (values => values)
     const validateContactValues = contactFormUtils.validateContactValues || (() => ({}))
     const getContactStatusMessage = contactFormUtils.getContactStatusMessage || (status => status)
+    const getContactStatusState = contactFormUtils.getContactStatusState || (status => ({
+      tone: status === 'success' ? 'success' : 'error',
+      title: status === 'success' ? 'Message sent' : 'Something went wrong',
+      message: getContactStatusMessage(status),
+      dismissOnInput: status === 'success'
+    }))
+    const statusTitleEl = statusEl?.querySelector('.contact-form__status-title')
+    const statusMessageEl = statusEl?.querySelector('.contact-form__status-message')
+    let activeStatusState = null
     const fields = [
       {
         id: 'contact-name'
@@ -248,6 +257,24 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
 
+    const clearStatus = () => {
+      activeStatusState = null
+      if (!statusEl) return
+      statusEl.setAttribute('data-visible', 'false')
+      statusEl.setAttribute('data-tone', 'neutral')
+      if (statusTitleEl) statusTitleEl.textContent = ''
+      if (statusMessageEl) statusMessageEl.textContent = ''
+    }
+
+    const showStatus = (statusKey, overrideMessage) => {
+      activeStatusState = getContactStatusState(statusKey)
+      if (!statusEl) return
+      statusEl.setAttribute('data-visible', 'true')
+      statusEl.setAttribute('data-tone', activeStatusState.tone)
+      if (statusTitleEl) statusTitleEl.textContent = activeStatusState.title
+      if (statusMessageEl) statusMessageEl.textContent = overrideMessage || activeStatusState.message
+    }
+
     const validateField = field => {
       const fieldEl = document.getElementById(field.id)
       if (!fieldEl) return true
@@ -257,13 +284,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return !message
     }
 
-    fields.forEach(field => {
-      const fieldEl = document.getElementById(field.id)
+    contactForm.querySelectorAll('input, textarea, select').forEach(fieldEl => {
       if (!fieldEl) return
+      const trackedField = fields.find(field => field.id === fieldEl.id)
       fieldEl.addEventListener('blur', () => {
-        validateField(field)
+        if (trackedField) validateField(trackedField)
       })
       fieldEl.addEventListener('input', () => {
+        if (activeStatusState?.dismissOnInput) {
+          clearStatus()
+        }
         if (fieldEl.getAttribute('aria-invalid') === 'true') {
           setFieldError(fieldEl, '')
         }
@@ -280,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isValid = Object.keys(errors).length === 0
 
       if (!isValid) {
-        statusEl.textContent = getContactStatusMessage('invalid')
+        showStatus('invalid')
         const firstInvalid = contactForm.querySelector('[aria-invalid="true"]')
         firstInvalid?.focus()
         return
@@ -291,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.setAttribute('data-loading', '')
       submitBtn.textContent = 'Sending…'
       submitBtn.disabled = true
-      statusEl.textContent = ''
+      clearStatus()
 
       try {
         const response = await window.fetch(endpoint, {
@@ -312,17 +342,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!response.ok || !result?.ok) {
           const statusKey = result?.status || 'server'
-          statusEl.textContent = result?.message || getContactStatusMessage(statusKey)
+          showStatus(statusKey, result?.message)
           const firstInvalid = contactForm.querySelector('[aria-invalid="true"]')
           firstInvalid?.focus()
           return
         }
 
-        statusEl.textContent = result.message || getContactStatusMessage('success')
+        showStatus('success', result?.message)
         contactForm.reset()
         applyValidationState({})
       } catch (error) {
-        statusEl.textContent = getContactStatusMessage('network')
+        showStatus('network')
       } finally {
         submitBtn.removeAttribute('data-loading')
         submitBtn.textContent = originalText
