@@ -11,3 +11,10 @@ desktop.ini
 # Logs
 *.log
 config/contact-mailer.config.php
+
+# Backups / scratch
+*.bak
+
+# Playwright / test scratch artifacts
+.playwright-cli/
+output/playwright/

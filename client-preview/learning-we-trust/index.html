@@ -5,13 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning We Trust &mdash; The Learning Warehouse</title>
   <meta name="description" content="Great learning doesn't happen in isolation. Discover the tools, providers, and resources The Learning Warehouse trusts and recommends.">
+  <link rel="canonical" href="https://thelearningwarehouse.com/learning-we-trust/">
   <link rel="icon" href="../assets/images/logos/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/images/logos/favicon.ico" sizes="32x32">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Learning Warehouse">
+  <meta property="og:title" content="Learning We Trust — The Learning Warehouse">
+  <meta property="og:description" content="Great learning doesn't happen in isolation. Discover the tools, providers, and resources The Learning Warehouse trusts and recommends.">
+  <meta property="og:url" content="https://thelearningwarehouse.com/learning-we-trust/">
+  <meta property="og:image" content="https://thelearningwarehouse.com/assets/images/photos/other-1-desktop.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learning We Trust — The Learning Warehouse">
+  <meta name="twitter:description" content="Great learning doesn't happen in isolation. Discover the tools, providers, and resources The Learning Warehouse trusts and recommends.">
+  <meta name="twitter:image" content="https://thelearningwarehouse.com/assets/images/photos/other-1-desktop.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/aptos-regular.woff2?v=20260605" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=20260605">
+  <link rel="stylesheet" href="../css/learning-we-trust.css?v=20260605">
 </head>
 <body class="page-learning-we-trust">
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- NAVIGATION -->
   <header class="site-header" id="site-header">
@@ -45,7 +63,7 @@
     </nav>
   </header>
 
-  <main data-decor-palette="rich" 
+  <main id="main" tabindex="-1" data-decor-palette="rich" 
         data-decor-density="auto"
         data-decor-override-1="color:lime"
         data-decor-override-4="color:purple">
@@ -157,138 +175,11 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="../js/privacy-policy-utils.js"></script>
-  <script src="../js/main.js"></script>
-  <script>
-  (function () {
-    'use strict';
-
-    /* ── Reduced-motion guard ─────────────────────────────────────────────── */
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* ── Register plugins ─────────────────────────────────────────────────── */
-    gsap.registerPlugin(ScrollTrigger);
-
-    /* ── If reduced motion: skip all transform/opacity animations ─────────── */
-    if (prefersReduced) {
-      return;
-    }
-
-    /* ── Hero entrance — staggered timeline ──────────────────────────────── */
-    const heroTl = gsap.timeline({ delay: 0.15 });
-    heroTl
-      .from('.lwt-hero__overline', {
-        opacity: 0,
-        y: 18,
-        duration: 0.5,
-        ease: 'power2.out'
-      })
-      .from('.lwt-hero__title', {
-        opacity: 0,
-        y: 28,
-        duration: 0.65,
-        ease: 'power3.out'
-      }, '-=0.28')
-      .from('.lwt-hero__lead', {
-        opacity: 0,
-        y: 20,
-        duration: 0.55,
-        ease: 'power2.out',
-        stagger: 0.14
-      }, '-=0.32');
-
-    /* ── Subsection reveal — each article header + body ──────────────────── */
-    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-
-    document.querySelectorAll('.lwt-sub').forEach(function (sub) {
-      var header = sub.querySelector('.lwt-sub__header');
-      var body   = sub.querySelector('.lwt-sub__body');
-
-      if (isDesktop) {
-        /* Desktop: header slides from left, body from right */
-        gsap.from(header, {
-          opacity: 0,
-          x: -36,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sub,
-            start: 'top 78%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        });
-        gsap.from(body, {
-          opacity: 0,
-          x: 36,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sub,
-            start: 'top 78%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        });
-      } else {
-        /* Mobile: unified fade + slide up */
-        gsap.from([header, body], {
-          opacity: 0,
-          y: 28,
-          duration: 0.6,
-          ease: 'power2.out',
-          stagger: 0.12,
-          scrollTrigger: {
-            trigger: sub,
-            start: 'top 84%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        });
-      }
-    });
-
-    /* ── Logo cards stagger (if logos are present) ───────────────────────── */
-    var logoCards = document.querySelectorAll('.lwt-logo-card');
-    if (logoCards.length) {
-      ScrollTrigger.batch('.lwt-logo-card', {
-        onEnter: function (batch) {
-          gsap.from(batch, {
-            opacity: 0,
-            y: 20,
-            scale: 0.95,
-            duration: 0.45,
-            ease: 'power2.out',
-            stagger: 0.07
-          });
-        },
-        start: 'top 86%',
-        once: true
-      });
-    }
-
-    /* ── Resource card reveal ─────────────────────────────────────────────── */
-    var resourceCard = document.querySelector('.lwt-resource-card');
-    if (resourceCard) {
-      gsap.from(resourceCard, {
-        opacity: 0,
-        y: 24,
-        scale: 0.97,
-        duration: 0.65,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: resourceCard,
-          start: 'top 86%',
-          toggleActions: 'play none none none',
-          once: true
-        }
-      });
-    }
-
-  }());
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.min.js"></script>
+  <script defer src="../js/privacy-policy-utils.js?v=20260605"></script>
+  <script defer src="../js/main.js?v=20260605"></script>
+  <script defer src="../js/learning-we-trust.js?v=20260605"></script>
 </body>
 </html>
