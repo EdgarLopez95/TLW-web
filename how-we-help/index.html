@@ -4,17 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How We Help &mdash; The Learning Warehouse</title>
+  <meta name="description" content="Our approach, learning design and delivery, and learning tools — everything The Learning Warehouse does to help your team grow.">
+  <link rel="canonical" href="https://thelearningwarehouse.com/how-we-help/">
   <link rel="icon" href="../assets/images/logos/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#096C29">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Learning Warehouse">
+  <meta property="og:title" content="How We Help — The Learning Warehouse">
+  <meta property="og:description" content="Our approach, learning design and delivery, and learning tools — everything The Learning Warehouse does to help your team grow.">
+  <meta property="og:url" content="https://thelearningwarehouse.com/how-we-help/">
+  <meta property="og:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Learning Warehouse — learning that leads to real change">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How We Help — The Learning Warehouse">
+  <meta name="twitter:description" content="Our approach, learning design and delivery, and learning tools — everything The Learning Warehouse does to help your team grow.">
+  <meta name="twitter:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/aptos-regular.woff2?v=20260605" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=20260605">
+  <link rel="stylesheet" href="../css/how-we-help.css?v=20260605">
 </head>
-<body>
+<body class="page-how-we-help">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAVIGATION -->
   <header class="site-header" id="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a href="../" class="nav__logo" aria-label="The Learning Warehouse - Home">
-        <img src="../assets/images/logos/twh-logo-primary.svg" alt="The Learning Warehouse" height="32">
+        <img class="nav__logo-img nav__logo-img--light" src="../assets/images/logos/twh-logo-white.svg"   alt="" width="120" height="32" aria-hidden="true">
+        <img class="nav__logo-img nav__logo-img--dark"  src="../assets/images/logos/twh-logo-primary.svg" alt="" width="120" height="32" aria-hidden="true">
       </a>
 
       <button class="nav__hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
@@ -22,25 +49,351 @@
       </button>
 
       <ul class="nav__links" id="nav-menu" role="list">
-        <li><a href="../" class="nav__link">Home</a></li>
-        <li><a href="../about/" class="nav__link">About</a></li>
+        <li><a href="../"                  class="nav__link">Home</a></li>
+        <li><a href="../about/"            class="nav__link">About</a></li>
         <li class="nav__item--dropdown">
-          <button class="nav__link nav__dropdown-toggle nav__link--active" aria-expanded="false" aria-haspopup="true">
-            How We Help <i data-lucide="chevron-down" aria-hidden="true"></i>
+          <a href="./" class="nav__link nav__link--active" aria-current="page">How We Help</a>
+          <button class="nav__dropdown-chevron" aria-expanded="false" aria-haspopup="true" aria-label="How We Help submenu">
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
           </button>
           <ul class="nav__dropdown" role="list">
-            <li><a href="../how-we-help/our-approach/" class="nav__dropdown-link">Our Approach</a></li>
-            <li><a href="../how-we-help/learning-design-and-delivery/" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
-            <li><a href="../how-we-help/learning-tools/" class="nav__dropdown-link">Learning Tools</a></li>
+            <li><a href="#our-approach"                  class="nav__dropdown-link">Our Approach</a></li>
+            <li><a href="#learning-design-and-delivery"  class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
+            <li><a href="#learning-tools"                class="nav__dropdown-link">Learning Tools</a></li>
           </ul>
         </li>
         <li><a href="../learning-we-trust/" class="nav__link">Learning We Trust</a></li>
-        <li><a href="../contact/" class="nav__link">Contact Us</a></li>
+        <li><a href="../contact/"           class="nav__link">Contact Us</a></li>
       </ul>
     </nav>
   </header>
-  <main class="page-main--placeholder" aria-label="Page content"></main>
 
+  <main id="main" tabindex="-1" data-decor-palette="base" 
+        data-decor-density="auto"
+        data-decor-override-3="color:navy"
+        data-decor-override-4="color:purple">
+
+    <!-- ═══════════════════════════════════════ HERO -->
+    <section class="hwh-hero" aria-label="How we help — page introduction" data-decor-bg="offwhite">
+      <div class="container hwh-hero__inner">
+        <span class="hwh-hero__overline">HOW WE HELP</span>
+        <h1 class="hwh-hero__title">
+          We don't just show up and deliver.
+          <em class="hwh-hero__title-accent">We have some core values that guide how we partner with you.</em>
+        </h1>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ OUR APPROACH / PARTNERSHIP VALUES -->
+    <section class="hwh-values section" id="our-approach" aria-label="Our approach — how we partner with you" data-decor-bg="offwhite">
+      <div class="container">
+
+        <header class="section-header hwh-values__header">
+          <span class="overline">Our Approach</span>
+          <h2>HOW WE PARTNER WITH YOU</h2>
+        </header>
+
+        <div class="value-grid">
+
+          <article class="value-card value-card--1" data-num="01">
+            <div class="value-card__top">
+              <i class="value-card__icon" data-lucide="coffee" aria-hidden="true"></i>
+            </div>
+            <h3 class="value-card__title">No blind dates</h3>
+            <p class="value-card__body">You want to work with organisations you're aligned with. So do we. Before anything is signed, we work to understand your needs and work out if we're the best fit for you. Not ready for dinner? Let's get a coffee.</p>
+          </article>
+
+          <article class="value-card value-card--2" data-num="02">
+            <div class="value-card__top">
+              <i class="value-card__icon" data-lucide="users-2" aria-hidden="true"></i>
+            </div>
+            <h3 class="value-card__title">With and for you</h3>
+            <p class="value-card__body">We are your partner in learning. We don't design in a vacuum. We make sure we understand you so that we can design learning with and for you.</p>
+          </article>
+
+          <article class="value-card value-card--3" data-num="03">
+            <div class="value-card__top">
+              <i class="value-card__icon" data-lucide="dumbbell" aria-hidden="true"></i>
+            </div>
+            <h3 class="value-card__title">We do the heavy lifting</h3>
+            <div class="value-card__body">
+              <p>We're not seagulls. We love accountability.</p>
+              <p>We don't just architect the learning, we build it, we deliver it and we measure it, giving you time back.</p>
+            </div>
+          </article>
+
+          <article class="value-card value-card--4" data-num="04">
+            <div class="value-card__top">
+              <i class="value-card__icon" data-lucide="zap" aria-hidden="true"></i>
+            </div>
+            <h3 class="value-card__title">Seriously engaging</h3>
+            <p class="value-card__body">We take your satisfaction seriously, and we care about the quality of the learning we deliver. We know 'fun' and 'rigour' are not mutually exclusive. That's why our learning feels seriously engaging.</p>
+          </article>
+
+        </div>
+
+        <div class="hwh-values__close">
+          <p class="hwh-values__close-lead">We work with organisations who know that learning makes a difference. <em class="hwh-values__close-accent">We make that happen.</em></p>
+          <p class="hwh-values__close-body">This means we focus on two things: designing and delivering learning that works, and making sure the right tools are in place to support it.</p>
+          <a class="btn btn--primary hwh-values__cta" href="../contact/">Partner with us</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ LEARNING DESIGN AND DELIVERY -->
+    <section class="hwh-split hwh-split--ldd section" id="learning-design-and-delivery" aria-labelledby="ldd-heading" data-decor-bg="offwhite">
+      <div class="container hwh-split__inner">
+
+        <div class="hwh-split__sidebar">
+          <h2 class="hwh-split__heading" id="ldd-heading">Learning design and delivery</h2>
+        </div>
+
+        <div class="hwh-split__body hwh-split__body--ldd">
+          <p class="hwh-split__lead">We design and deliver learning that shows up on a Monday morning. This means:</p>
+          <ul class="hwh-list" role="list">
+            <li class="hwh-list__item hwh-list__item--ldd" data-step="01">
+              <span class="hwh-list__num" aria-hidden="true">01</span>
+              <i data-lucide="arrow-up-right" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>Leading engaging rapid upskill workshops and comprehensive year-long programs designed specifically for your team.</span>
+            </li>
+            <li class="hwh-list__item hwh-list__item--ldd" data-step="02">
+              <span class="hwh-list__num" aria-hidden="true">02</span>
+              <i data-lucide="arrow-up-right" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>Building learning strategy that leads to clear and measurable actions, and partnering with you to get it done.</span>
+            </li>
+            <li class="hwh-list__item hwh-list__item--ldd" data-step="03">
+              <span class="hwh-list__num" aria-hidden="true">03</span>
+              <i data-lucide="arrow-up-right" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>Architecting learning experiences and events that leave people wanting more.</span>
+            </li>
+            <li class="hwh-list__item hwh-list__item--ldd" data-step="04">
+              <span class="hwh-list__num" aria-hidden="true">04</span>
+              <i data-lucide="arrow-up-right" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>Creating beautiful, interactive, on-demand learning for your organisation.</span>
+            </li>
+          </ul>
+          <p class="hwh-split__closing">Our work is always engaging (kind of addictive, actually), relevant, and grounded in the day-to-day reality of your people.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ EXPERIENCE CAROUSEL -->
+    <section class="hwh-exp" aria-label="Where we've made an impact — experience examples" data-decor-bg="navy">
+      <div class="exp-carousel">
+        <div class="exp-track">
+
+          <div class="exp-item">
+            <span class="exp-item__num">01</span>
+            <p class="exp-item__text">We've architected and delivered major conference events for organisations including QSPA and Department of Education International, Queensland.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">02</span>
+            <p class="exp-item__text">We've helped shape the learning strategy of one of Australia's major flight carriers.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">03</span>
+            <p class="exp-item__text">We've delivered a Northern Territory-wide school leadership program to improve strategic planning and implementation.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">04</span>
+            <p class="exp-item__text">We've worked with tech companies like Snap Inc and LinkedIn to upskill team members in soft skills.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">05</span>
+            <p class="exp-item__text">We've built custom online learning courses for clients like SEEK and Catholic Schools NSW.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">06</span>
+            <p class="exp-item__text">We've worked with individual schools to deliver targeted professional learning programs.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">07</span>
+            <p class="exp-item__text">We've keynoted on major stages both in Australia and globally.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">08</span>
+            <p class="exp-item__text">We've supported 12 schools across NSW over three years to improve their HSC and NAPLAN results.</p>
+          </div>
+          <div class="exp-item">
+            <span class="exp-item__num">09</span>
+            <p class="exp-item__text">We've delivered the year-long middle leaders' program for the Victorian Academy of Teaching and Leadership for over a decade.</p>
+          </div>
+
+          <!-- Duplicate set for seamless infinite loop -->
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">01</span>
+            <p class="exp-item__text">We've architected and delivered major conference events for organisations including QSPA and Department of Education International, Queensland.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">02</span>
+            <p class="exp-item__text">We've helped shape the learning strategy of one of Australia's major flight carriers.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">03</span>
+            <p class="exp-item__text">We've delivered a Northern Territory-wide school leadership program to improve strategic planning and implementation.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">04</span>
+            <p class="exp-item__text">We've worked with tech companies like Snap Inc and LinkedIn to upskill team members in soft skills.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">05</span>
+            <p class="exp-item__text">We've built custom online learning courses for clients like SEEK and Catholic Schools NSW.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">06</span>
+            <p class="exp-item__text">We've worked with individual schools to deliver targeted professional learning programs.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">07</span>
+            <p class="exp-item__text">We've keynoted on major stages both in Australia and globally.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">08</span>
+            <p class="exp-item__text">We've supported 12 schools across NSW over three years to improve their HSC and NAPLAN results.</p>
+          </div>
+          <div class="exp-item" aria-hidden="true">
+            <span class="exp-item__num">09</span>
+            <p class="exp-item__text">We've delivered the year-long middle leaders' program for the Victorian Academy of Teaching and Leadership for over a decade.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ CAPABILITIES WE DEVELOP -->
+    <section class="hwh-caps section" aria-labelledby="caps-heading" data-decor-bg="offwhite">
+      <div class="container">
+
+        <header class="section-header hwh-caps__header">
+          <span class="overline">What We Develop</span>
+          <h2 id="caps-heading">CAPABILITIES WE DEVELOP</h2>
+          <p class="hwh-caps__intro">Our work is always tailored, but we often support in areas like:</p>
+        </header>
+
+        <div class="cap-atlas">
+
+          <article class="cap-band cap-band--01">
+            <div class="cap-band__head">
+              <span class="cap-band__num" aria-hidden="true">01</span>
+              <h3 class="cap-band__title">
+                <i data-lucide="trending-up" aria-hidden="true" class="cap-band__icon"></i>
+                Leadership and management
+              </h3>
+            </div>
+            <ul class="cap-band__list" role="list">
+              <li>Developing emerging and middle leaders</li>
+              <li>Targeted improvement-focused leadership</li>
+              <li>Leading with clarity and confidence</li>
+              <li>Building high-performing teams</li>
+              <li>Coaching for everyday leadership</li>
+            </ul>
+          </article>
+
+          <article class="cap-band cap-band--02">
+            <div class="cap-band__head">
+              <span class="cap-band__num" aria-hidden="true">02</span>
+              <h3 class="cap-band__title">
+                <i data-lucide="compass" aria-hidden="true" class="cap-band__icon"></i>
+                Change and organisational direction
+              </h3>
+            </div>
+            <ul class="cap-band__list" role="list">
+              <li>Developing learning strategy</li>
+              <li>Leading people through change</li>
+              <li>Setting clear expectations and accountability</li>
+              <li>Decision-making with confidence</li>
+            </ul>
+          </article>
+
+          <article class="cap-band cap-band--03">
+            <div class="cap-band__head">
+              <span class="cap-band__num" aria-hidden="true">03</span>
+              <h3 class="cap-band__title">
+                <i data-lucide="message-circle" aria-hidden="true" class="cap-band__icon"></i>
+                Communication
+              </h3>
+            </div>
+            <ul class="cap-band__list" role="list">
+              <li>Designing and delivering epic learning experiences</li>
+              <li>Giving (and receiving) feedback that drives growth</li>
+              <li>Navigating difficult conversations</li>
+              <li>Presenting ideas with confidence</li>
+            </ul>
+          </article>
+
+          <article class="cap-band cap-band--04">
+            <div class="cap-band__head">
+              <span class="cap-band__num" aria-hidden="true">04</span>
+              <h3 class="cap-band__title">
+                <i data-lucide="graduation-cap" aria-hidden="true" class="cap-band__icon"></i>
+                Education leadership and strategy
+              </h3>
+            </div>
+            <ul class="cap-band__list" role="list">
+              <li>School strategy and transformation</li>
+              <li>Strengthening school culture</li>
+              <li>Future-focused pedagogy</li>
+              <li>Innovation in learning models</li>
+              <li>Thoughtful use of AI in education</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <div class="hwh-caps__footer hwh-caps__outro">
+          <p class="hwh-caps__footer-copy">Not seeing exactly what you need? Let's get a coffee, and if we can't help you, we're sure to be able to <em>connect you with someone who can.</em></p>
+          <a class="btn btn--primary" href="../contact/">Start a conversation</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ LEARNING TOOLS -->
+    <section class="hwh-split hwh-split--mirror hwh-split--tools section" id="learning-tools" aria-labelledby="tools-heading" data-decor-bg="offwhite">
+      <div class="container hwh-split__inner">
+
+        <div class="hwh-split__sidebar">
+          <h2 class="hwh-split__heading" id="tools-heading">Learning tools</h2>
+        </div>
+
+        <div class="hwh-split__body">
+          <p class="hwh-split__lead">We won't sell you a drill if all you need is a nail. In fact, we won't try to sell anything at all if it's not needed.</p>
+          <p class="hwh-split__para">We only help select and implement learning tools that support your strategy and goals, rather than distract from them.</p>
+          <p class="hwh-split__para">We support organisations to:</p>
+          <ul class="hwh-list" role="list">
+            <li class="hwh-list__item">
+              <i data-lucide="check" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>select learning tools and assistive technologies with confidence</span>
+            </li>
+            <li class="hwh-list__item">
+              <i data-lucide="check" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>create and curate learning content that targets your strategic priorities</span>
+            </li>
+            <li class="hwh-list__item">
+              <i data-lucide="check" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>design beautiful learning and clear pathways</span>
+            </li>
+            <li class="hwh-list__item">
+              <i data-lucide="check" aria-hidden="true" class="hwh-list__icon"></i>
+              <span>use data and reporting to inform decisions</span>
+            </li>
+          </ul>
+          <p class="hwh-split__para">Sometimes clients come to us knowing exactly what they need. Other times, they know what they want to achieve. Either way, we start with your goals and, if relevant, recommend tools that fit your context, not the other way around.</p>
+          <div class="hwh-tools-cta">
+            <p class="hwh-split__closing hwh-tools-cta__lead">The right tool for the right job, and not just the tools in our warehouse, either.</p>
+            <a class="btn btn--primary hwh-split__cta hwh-tools-cta__btn" href="../contact/">Start a conversation</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer" aria-label="Site footer">
     <div class="container footer__top">
 
@@ -48,30 +401,29 @@
         <a href="../" aria-label="The Learning Warehouse - Home">
           <img src="../assets/images/logos/twh-logo-white.svg" alt="The Learning Warehouse" height="48">
         </a>
-        <p class="footer__tagline">work with the people who know and love learning.</p>
+        <p class="footer__tagline">Work with the people who know and love learning.</p>
       </div>
 
       <nav class="footer__nav" aria-label="Footer navigation">
         <div class="footer__col">
           <h3 class="footer__col-title">Working With Us</h3>
           <ul role="list">
-            <li><a href="../how-we-help/our-approach/">Our Approach</a></li>
-            <li><a href="../how-we-help/learning-design-and-delivery/">Our Design &amp; Delivery</a></li>
-            <li><a href="../how-we-help/learning-tools/">Our Tools</a></li>
+            <li><a href="#our-approach">Our Approach</a></li>
+            <li><a href="#learning-design-and-delivery">Our Design &amp; Delivery</a></li>
+            <li><a href="#learning-tools">Our Tools</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3 class="footer__col-title">Resources</h3>
           <ul role="list">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Founders bios (Pdf)</a></li>
-            <li><a href="../learning-we-trust/">Learning We're Loving</a></li>
-            <li><a href="#">Recommended Providers</a></li>
+            <li><a href="../assets/documents/bios.pdf" download>Founders' Bios (PDF)</a></li>
+            <li><a href="../learning-we-trust/#learning-were-loving">Learning We&rsquo;re Loving</a></li>
+            <li><a href="../learning-we-trust/#recommended-providers">Recommended Providers</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--connect">
           <h3 class="footer__col-title">Connect</h3>
-          <a href="../contact/" class="btn btn--action footer__connect-btn">START A CONVERSATION</a>
+          <a href="../contact/" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
           <a href="mailto:admin@thelearningwarehouse.com" class="footer__email">admin@thelearningwarehouse.com</a>
         </div>
       </nav>
@@ -83,12 +435,10 @@
       </div>
     </div>
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="../js/main.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.min.js"></script>
+  <script defer src="../js/main.js?v=20260605"></script>
 </body>
 </html>
-
-
-

@@ -4,17 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us &mdash; The Learning Warehouse</title>
+  <meta name="description" content="Start a conversation with The Learning Warehouse. Tell us what you're thinking and we'll get back to you within 24 hours.">
+  <link rel="canonical" href="https://thelearningwarehouse.com/contact/">
   <link rel="icon" href="../assets/images/logos/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#096C29">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Learning Warehouse">
+  <meta property="og:title" content="Contact Us — The Learning Warehouse">
+  <meta property="og:description" content="Start a conversation with The Learning Warehouse. Tell us what you're thinking and we'll get back to you within 24 hours.">
+  <meta property="og:url" content="https://thelearningwarehouse.com/contact/">
+  <meta property="og:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Learning Warehouse — learning that leads to real change">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us — The Learning Warehouse">
+  <meta name="twitter:description" content="Start a conversation with The Learning Warehouse. Tell us what you're thinking and we'll get back to you within 24 hours.">
+  <meta name="twitter:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/aptos-regular.woff2?v=20260605" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=20260605">
+  <link rel="stylesheet" href="../css/contact.css?v=20260605">
 </head>
-<body>
+<body class="page-contact">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header" id="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a href="../" class="nav__logo" aria-label="The Learning Warehouse - Home">
-        <img src="../assets/images/logos/twh-logo-primary.svg" alt="The Learning Warehouse" height="32">
+        <img class="nav__logo-img nav__logo-img--light" src="../assets/images/logos/twh-logo-white.svg"   alt="" width="120" height="32" aria-hidden="true">
+        <img class="nav__logo-img nav__logo-img--dark"  src="../assets/images/logos/twh-logo-primary.svg" alt="" width="120" height="32" aria-hidden="true">
       </a>
 
       <button class="nav__hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
@@ -25,13 +51,14 @@
         <li><a href="../" class="nav__link">Home</a></li>
         <li><a href="../about/" class="nav__link">About</a></li>
         <li class="nav__item--dropdown">
-          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-            How We Help <i data-lucide="chevron-down" aria-hidden="true"></i>
+          <a href="../how-we-help/" class="nav__link">How We Help</a>
+          <button class="nav__dropdown-chevron" aria-expanded="false" aria-haspopup="true" aria-label="How We Help submenu">
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
           </button>
           <ul class="nav__dropdown" role="list">
-            <li><a href="../how-we-help/our-approach/" class="nav__dropdown-link">Our Approach</a></li>
-            <li><a href="../how-we-help/learning-design-and-delivery/" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
-            <li><a href="../how-we-help/learning-tools/" class="nav__dropdown-link">Learning Tools</a></li>
+            <li><a href="../how-we-help/#our-approach" class="nav__dropdown-link">Our Approach</a></li>
+            <li><a href="../how-we-help/#learning-design-and-delivery" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
+            <li><a href="../how-we-help/#learning-tools" class="nav__dropdown-link">Learning Tools</a></li>
           </ul>
         </li>
         <li><a href="../learning-we-trust/" class="nav__link">Learning We Trust</a></li>
@@ -39,7 +66,100 @@
       </ul>
     </nav>
   </header>
-  <main class="page-main--placeholder" aria-label="Page content"></main>
+
+  <main id="main" tabindex="-1" aria-label="Page content" 
+        data-decor-palette="base" 
+        data-decor-density="auto"
+        data-decor-override-3="color:navy"
+        data-decor-override-4="type:watermark">
+
+    <!-- ═══════════════════════════════════════ HERO -->
+    <section class="contact-hero" aria-label="Contact us — page introduction" data-decor-bg="offwhite">
+      <div class="container contact-hero__inner">
+        <span class="contact-hero__overline">CONTACT US</span>
+        <h1 class="contact-hero__title">
+          Start a <em class="contact-hero__accent">conversation.</em>
+        </h1>
+        <p class="contact-hero__lead">Tell us a little about what you&rsquo;re thinking, and we&rsquo;ll get back to you in the next 24 hours.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ FORM -->
+    <section class="contact-body section" aria-label="Start a conversation form" data-decor-bg="offwhite">
+      <div class="container">
+        <div class="contact-form-shell">
+          <form class="contact-form" id="contact-form" action="../contact-submit.php" method="post" data-contact-endpoint="../contact-submit.php" novalidate>
+
+            <header class="contact-form__head">
+              <h2 class="contact-form__head-title">Send us a message</h2>
+              <p class="contact-form__head-sub">Tell us what you&rsquo;re working on and we&rsquo;ll get back to you soon.</p>
+            </header>
+
+            <div class="contact-form__fields">
+
+              <div class="contact-form__row contact-form__row--pair">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-name">
+                    <span class="contact-form__num" aria-hidden="true">01</span>
+                    Name
+                  </label>
+                  <input class="contact-form__control" id="contact-name" name="name" type="text" autocomplete="name" required aria-describedby="contact-name-error">
+                  <p class="contact-form__error" id="contact-name-error" aria-live="polite"></p>
+                </div>
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-organisation">
+                    <span class="contact-form__num" aria-hidden="true">02</span>
+                    Organisation
+                    <span class="contact-form__optional">Optional</span>
+                  </label>
+                  <input class="contact-form__control" id="contact-organisation" name="organisation" type="text" autocomplete="organization">
+                  <p class="contact-form__error" id="contact-organisation-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-email">
+                    <span class="contact-form__num" aria-hidden="true">03</span>
+                    Email
+                  </label>
+                  <input class="contact-form__control" id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="contact-email-error">
+                  <p class="contact-form__error" id="contact-email-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label class="contact-form__label" for="contact-message">
+                    <span class="contact-form__num" aria-hidden="true">04</span>
+                    Message
+                  </label>
+                  <textarea class="contact-form__control contact-form__control--textarea" id="contact-message" name="message" required aria-describedby="contact-message-error" placeholder="Tell us about your project"></textarea>
+                  <p class="contact-form__error" id="contact-message-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="contact-form__foot">
+              <div class="contact-form__actions">
+                <button class="btn btn--primary contact-form__submit" type="submit">Send message</button>
+                <div class="contact-form__status" id="contact-form-status" role="status" aria-live="polite" aria-atomic="true" data-tone="neutral" data-visible="false">
+                  <span class="contact-form__status-icon" aria-hidden="true"></span>
+                  <div class="contact-form__status-copy">
+                    <p class="contact-form__status-title"></p>
+                    <p class="contact-form__status-message"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="site-footer" aria-label="Site footer">
     <div class="container footer__top">
@@ -48,30 +168,29 @@
         <a href="../" aria-label="The Learning Warehouse - Home">
           <img src="../assets/images/logos/twh-logo-white.svg" alt="The Learning Warehouse" height="48">
         </a>
-        <p class="footer__tagline">work with the people who know and love learning.</p>
+        <p class="footer__tagline">Work with the people who know and love learning.</p>
       </div>
 
       <nav class="footer__nav" aria-label="Footer navigation">
         <div class="footer__col">
           <h3 class="footer__col-title">Working With Us</h3>
           <ul role="list">
-            <li><a href="../how-we-help/our-approach/">Our Approach</a></li>
-            <li><a href="../how-we-help/learning-design-and-delivery/">Our Design &amp; Delivery</a></li>
-            <li><a href="../how-we-help/learning-tools/">Our Tools</a></li>
+            <li><a href="../how-we-help/#our-approach">Our Approach</a></li>
+            <li><a href="../how-we-help/#learning-design-and-delivery">Our Design &amp; Delivery</a></li>
+            <li><a href="../how-we-help/#learning-tools">Our Tools</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3 class="footer__col-title">Resources</h3>
           <ul role="list">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Founders bios (Pdf)</a></li>
-            <li><a href="../learning-we-trust/">Learning We're Loving</a></li>
-            <li><a href="#">Recommended Providers</a></li>
+            <li><a href="../assets/documents/bios.pdf" download>Founders' bios (PDF)</a></li>
+            <li><a href="../learning-we-trust/#learning-were-loving">Learning We&rsquo;re Loving</a></li>
+            <li><a href="../learning-we-trust/#recommended-providers">Recommended Providers</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--connect">
           <h3 class="footer__col-title">Connect</h3>
-          <a href="../contact/" class="btn btn--action footer__connect-btn">START A CONVERSATION</a>
+          <a href="../contact/" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
           <a href="mailto:admin@thelearningwarehouse.com" class="footer__email">admin@thelearningwarehouse.com</a>
         </div>
       </nav>
@@ -83,12 +202,11 @@
       </div>
     </div>
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="../js/main.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.min.js"></script>
+  <script defer src="../js/contact-form-utils.js?v=20260605"></script>
+  <script defer src="../js/main.js?v=20260605"></script>
 </body>
 </html>
-
-
-

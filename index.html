@@ -3,328 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Learning Warehouse — Coming Soon</title>
-  <meta name="description" content="The Learning Warehouse is getting a refresh. We'll be back soon with something worth the wait.">
+  <title>The Learning Warehouse &mdash; Learning that leads to real change</title>
+  <meta name="description" content="Work with the people who know and love learning. The Learning Warehouse designs and delivers learning that lifts capability and creates real change.">
+  <link rel="canonical" href="https://thelearningwarehouse.com/">
   <link rel="icon" href="assets/images/logos/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/logos/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#096C29">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Learning Warehouse">
+  <meta property="og:title" content="The Learning Warehouse — Learning that leads to real change">
+  <meta property="og:description" content="Work with the people who know and love learning. The Learning Warehouse designs and delivers learning that lifts capability and creates real change.">
+  <meta property="og:url" content="https://thelearningwarehouse.com/">
+  <meta property="og:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Learning Warehouse — learning that leads to real change">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Learning Warehouse — Learning that leads to real change">
+  <meta name="twitter:description" content="Work with the people who know and love learning. The Learning Warehouse designs and delivers learning that lifts capability and creates real change.">
+  <meta name="twitter:image" content="https://thelearningwarehouse.com/assets/images/social/og-default.jpg">
+
+  <link rel="preload" as="image" href="assets/images/photos/other-1-desktop.webp"
+        imagesrcset="assets/images/photos/other-1-mobile.webp 768w, assets/images/photos/other-1-tablet.webp 1280w, assets/images/photos/other-1-desktop.webp 1920w"
+        imagesizes="100vw">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-emerald:  #096C29;
-      --color-navy:     #171739;
-      --color-offwhite: #F7F4EE;
-      --color-lime:     #C7F136;
-      --color-purple:   #B49AFD;
-      --font:           'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      max-width: 100%;
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--color-offwhite);
-      color: var(--color-navy);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* ── Decorative circles ── */
-    .deco {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    .deco--lime {
-      --s: clamp(260px, 34vw, 520px);
-      width: var(--s); height: var(--s);
-      background: var(--color-lime);
-      top:  calc(var(--s) * -.42);
-      left: calc(var(--s) * -.42);
-    }
-
-    .deco--navy-large {
-      --s: clamp(220px, 28vw, 440px);
-      width: var(--s); height: var(--s);
-      background: var(--color-navy);
-      bottom: calc(var(--s) * -.4);
-      right:  calc(var(--s) * -.4);
-      opacity: .96;
-    }
-
-    .deco--emerald {
-      --s: clamp(64px, 8vw, 120px);
-      width: var(--s); height: var(--s);
-      background: var(--color-emerald);
-      top:   14%;
-      right: 9%;
-    }
-
-    .deco--purple-small {
-      --s: clamp(44px, 5.5vw, 88px);
-      width: var(--s); height: var(--s);
-      background: var(--color-purple);
-      bottom: 16%;
-      left:   11%;
-      opacity: .76;
-    }
-
-    /* ── Content ── */
-    .content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding: clamp(40px, 8vw, 80px) clamp(24px, 6vw, 48px);
-      max-width: 680px;
-      width: 100%;
-    }
-
-    .logo {
-      width: min(220px, 64vw);
-      height: auto;
-      margin: 0 auto clamp(36px, 5vw, 56px);
-      display: block;
-    }
-
-    .overline {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--color-emerald);
-      margin-bottom: 18px;
-    }
-
-    .headline {
-      font-size: clamp(38px, 6.5vw, 76px);
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -.028em;
-      color: var(--color-navy);
-      margin-bottom: clamp(20px, 3vw, 32px);
-    }
-
-    .headline em {
-      font-style: normal;
-      font-weight: 800;
-      color: var(--color-emerald);
-    }
-
-    .lead {
-      font-size: clamp(15px, 1.6vw, 18px);
-      font-weight: 500;
-      line-height: 1.65;
-      color: rgba(23,23,57,.62);
-      max-width: 440px;
-      margin: 0 auto clamp(32px, 4vw, 48px);
-    }
-
-    /* ── Progress bar ── */
-    .progress-wrap {
-      width: min(300px, 78vw);
-      margin: 0 auto clamp(32px, 4vw, 44px);
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(23,23,57,.38);
-      margin-bottom: 10px;
-    }
-
-    .progress-pct {
-      color: var(--color-emerald);
-      font-weight: 700;
-    }
-
-    .progress-track {
-      height: 4px;
-      background: rgba(23,23,57,.1);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--color-emerald), var(--color-lime));
-      transform-origin: left center;
-    }
-
-    /* ── CTA ── */
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background: var(--color-emerald);
-      color: var(--color-offwhite);
-      border-radius: 12px;
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-decoration: none;
-      transition: background 150ms ease-out, transform 150ms ease-out, box-shadow 150ms ease-out;
-      box-shadow: 0 8px 24px rgba(9,108,41,.22);
-    }
-
-    .cta:hover {
-      background: #0A7D2F;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(9,108,41,.28);
-    }
-
-    .cta:active { transform: scale(.98); }
-
-    .cta svg {
-      width: 16px; height: 16px;
-      flex-shrink: 0;
-    }
-  </style>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/aptos-regular.woff2?v=20260605" crossorigin>
+  <link rel="stylesheet" href="css/main.css?v=20260605">
+  <link rel="stylesheet" href="css/home.css?v=20260605">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Learning Warehouse",
+    "url": "https://thelearningwarehouse.com/",
+    "logo": "https://thelearningwarehouse.com/assets/images/logos/twh-logo-primary.svg",
+    "description": "The Learning Warehouse designs and delivers learning that lifts capability and creates real change.",
+    "email": "admin@thelearningwarehouse.com"
+  }
+  </script>
 </head>
-<body>
+<body class="page-home">
 
-  <div class="deco deco--lime"    aria-hidden="true"></div>
-  <div class="deco deco--navy-large"  aria-hidden="true"></div>
-  <div class="deco deco--emerald" aria-hidden="true"></div>
-  <div class="deco deco--purple-small" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="content">
+  <!-- NAVIGATION -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="./" class="nav__logo" aria-label="The Learning Warehouse - Home">
+        <img class="nav__logo-img nav__logo-img--light" src="assets/images/logos/twh-logo-white.svg" alt="" width="120" height="32" aria-hidden="true">
+        <img class="nav__logo-img nav__logo-img--dark" src="assets/images/logos/twh-logo-primary.svg" alt="" width="120" height="32" aria-hidden="true">
+      </a>
 
-    <img class="logo"
-         src="assets/images/logos/twh-logo-primary.svg"
-         alt="The Learning Warehouse">
+      <button class="nav__hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
 
-    <span class="overline">Website update</span>
+      <ul class="nav__links" id="nav-menu" role="list">
+        <li><a href="./" class="nav__link nav__link--active" aria-current="page">Home</a></li>
+        <li><a href="about/" class="nav__link">About</a></li>
+        <li class="nav__item--dropdown">
+          <a href="how-we-help/" class="nav__link">How We Help</a>
+          <button class="nav__dropdown-chevron" aria-expanded="false" aria-haspopup="true" aria-label="How We Help submenu">
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="how-we-help/#our-approach" class="nav__dropdown-link">Our Approach</a></li>
+            <li><a href="how-we-help/#learning-design-and-delivery" class="nav__dropdown-link">Learning Design &amp; Delivery</a></li>
+            <li><a href="how-we-help/#learning-tools" class="nav__dropdown-link">Learning Tools</a></li>
+          </ul>
+        </li>
+        <li><a href="learning-we-trust/" class="nav__link">Learning We Trust</a></li>
+        <li><a href="contact/" class="nav__link">Contact Us</a></li>
+      </ul>
 
-    <h1 class="headline">
-      Good learning<br>is <em>on its way.</em>
-    </h1>
+    </nav>
+  </header>
 
-    <p class="lead">
-      This website is currently under development.<br>
-      We&rsquo;ll be back soon.
-    </p>
+  <main id="main" tabindex="-1" data-decor-palette="base"
+        data-decor-density="auto"
+        data-decor-override-1="color:emerald"
+        data-decor-override-2="color:lime"
+        data-decor-override-5="color:purple">
 
-    <div class="progress-wrap">
-      <div class="progress-label">
-        <span>In progress</span>
-        <span class="progress-pct" id="pct-label">0%</span>
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero" data-decor-bg="offwhite">
+      <div class="hero__slider" aria-hidden="true">
+        <div class="hero__slide"
+             data-slide-img-mobile="assets/images/photos/other-1-mobile.webp"
+             data-slide-img-tablet="assets/images/photos/other-1-tablet.webp"
+             data-slide-img-desktop="assets/images/photos/other-1-desktop.webp"></div>
+        <div class="hero__slide"
+             data-slide-img-mobile="assets/images/photos/other-2-mobile.webp"
+             data-slide-img-tablet="assets/images/photos/other-2-tablet.webp"
+             data-slide-img-desktop="assets/images/photos/other-2-desktop.webp"></div>
       </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="progress-fill"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Work with the people who know and
+            <span class="hero__title-accent">love learning.</span>
+          </h1>
+          <p class="hero__lead">With thoughtful strategy, practical design, and the right tools, we help turn learning into action, and action into real change.</p>
+          <div class="hero__ctas">
+            <a href="contact/" class="btn btn--primary hero__cta-primary">Work with us</a>
+            <a href="how-we-help/#our-approach" class="btn btn--outline-light">Explore our approach</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ YOU + WE -->
+    <section class="you-we" aria-label="What you bring, what we bring" data-decor-bg="offwhite">
+      <div class="container">
+        <header class="you-we__statement">
+          <p>We partner with you to design and deliver learning that not only <strong>lifts capability</strong> but <strong>engages and excites your people.</strong></p>
+        </header>
+
+        <div class="you-we__grid">
+          <ul class="you-we__list you-we__list--left" role="list">
+            <li class="you-we__item">You have great ideas.</li>
+            <li class="you-we__item">You know your people.</li>
+            <li class="you-we__item">You know what they need.</li>
+          </ul>
+
+          <div class="you-we__divider" aria-hidden="true"></div>
+
+          <ul class="you-we__list you-we__list--right" role="list">
+            <li class="you-we__item">We know learning.</li>
+            <li class="you-we__item">We make it engaging.</li>
+            <li class="you-we__item">We get results.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- VIDEO -->
+    <section class="video-section" aria-label="The Learning Warehouse video" data-decor-bg="navy" hidden>
+      <div class="container video-section__inner">
+        <div class="video-frame">
+          <button class="video-frame__play" type="button" aria-label="Play video">
+            <i data-lucide="play" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE HELP -->
+    <section class="how-we-help section" aria-labelledby="how-we-help-title" data-decor-bg="offwhite">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="how-we-help-title">HOW WE HELP</h2>
+        </header>
+        <div class="how-we-help__stage">
+          <div class="cards-grid">
+
+            <article class="card card--how card--how-purple">
+              <div class="card__icon" aria-hidden="true">
+                <i data-lucide="layout-template"></i>
+              </div>
+              <h3 class="card__title">LEARNING DESIGN &amp; DELIVERY</h3>
+              <p>We work with teams to design and deliver learning that supports organisational priorities, strengthens capability, and leads to measurable change. From developing whole-of-organisation learning strategies to executing targeted professional development with you, our approach is always intentional and practical.</p>
+              <a href="how-we-help/#learning-design-and-delivery" class="btn btn--ghost card__cta">
+                LEARN MORE<span class="sr-only"> about Learning Design &amp; Delivery</span> <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </article>
+
+            <article class="card card--how card--featured">
+              <div class="card__icon" aria-hidden="true">
+                <i data-lucide="wrench"></i>
+              </div>
+              <h3 class="card__title">LEARNING TOOLS</h3>
+              <p>Outcomes first. Tools in service of them.<br>To succeed, great learning needs great tools. We use and provide learning platforms, tools, and resources that we trust to support learning.</p>
+              <a href="how-we-help/#learning-tools" class="btn btn--primary card__cta">
+                LEARN MORE<span class="sr-only"> about Learning Tools</span> <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners section" aria-labelledby="partners-title" data-decor-bg="offwhite">
+      <div class="container partners__header">
+        <h2 id="partners-title">WHO WE PARTNER WITH</h2>
+        <p class="partners__lead">We partner with decision-makers across education and corporate environments who need confidence that their investment in learning will translate into real-world capability.</p>
+      </div>
+      <div class="partner-cards">
+        <div class="partner-cards__track">
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/csnsw.webp" alt="CSNSW" width="316" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/northern-territory.webp" alt="Northern Territory Government" width="347" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/nsw-government.webp" alt="NSW Government" width="346" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/qantas.webp" alt="Qantas" width="153" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/seek.webp" alt="SEEK" width="317" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/victoria.webp" alt="Victoria Department of Education" width="368" height="111" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/snap-inc.webp" alt="Snap Inc" width="231" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/university-of-melbourne.webp" alt="University of Melbourne" width="124" height="124" loading="lazy"></div>
+          <!-- duplicate for seamless CSS loop -->
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/csnsw.webp" alt="" aria-hidden="true" width="316" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/northern-territory.webp" alt="" aria-hidden="true" width="347" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/nsw-government.webp" alt="" aria-hidden="true" width="346" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/qantas.webp" alt="" aria-hidden="true" width="153" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/seek.webp" alt="" aria-hidden="true" width="317" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/victoria.webp" alt="" aria-hidden="true" width="368" height="111" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/snap-inc.webp" alt="" aria-hidden="true" width="231" height="124" loading="lazy"></div>
+          <div class="partner-card"><img class="partner-card__logo" src="assets/images/logos/university-of-melbourne.webp" alt="" aria-hidden="true" width="124" height="124" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner" aria-labelledby="cta-title" data-decor-bg="navy">
+      <div class="container cta-banner__inner">
+        <p id="cta-title" class="cta-banner__text">
+          IF YOU'RE READY TO DESIGN LEARNING THAT LEADS TO REAL CHANGE, <em>LET'S CHAT.</em>
+        </p>
+        <a href="contact/" class="btn btn--primary cta-banner__btn">GET IN TOUCH</a>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container footer__top">
+
+      <div class="footer__brand">
+        <a href="./" aria-label="The Learning Warehouse - Home">
+          <img src="assets/images/logos/twh-logo-white.svg" alt="The Learning Warehouse" height="48">
+        </a>
+        <p class="footer__tagline">Work with the people who know and love learning.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__col">
+          <h3 class="footer__col-title">Working with us</h3>
+          <ul role="list">
+            <li><a href="how-we-help/#our-approach">Our Approach</a></li>
+            <li><a href="how-we-help/#learning-design-and-delivery">Our Design &amp; Delivery</a></li>
+            <li><a href="how-we-help/#learning-tools">Our Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__col-title">Resources</h3>
+          <ul role="list">
+            <li><a href="assets/documents/bios.pdf" download>Founders' bios (PDF)</a></li>
+            <li><a href="learning-we-trust/#learning-were-loving">Learning We're Loving</a></li>
+            <li><a href="learning-we-trust/#recommended-providers">Recommended Providers</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--connect">
+          <h3 class="footer__col-title">Connect</h3>
+          <a href="contact/" class="btn btn--primary footer__connect-btn">START A CONVERSATION</a>
+          <a href="mailto:admin@thelearningwarehouse.com" class="footer__email">admin@thelearningwarehouse.com</a>
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; 2026 THE LEARNING WAREHOUSE. ALL RIGHTS RESERVED.</p>
       </div>
     </div>
-
-    <a href="mailto:admin@thelearningwarehouse.com" class="cta">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-           aria-hidden="true">
-        <rect width="20" height="16" x="2" y="4" rx="2"/>
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-      </svg>
-      Get in touch in the meantime
-    </a>
-
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script>
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    const TARGET_PCT = 50
-
-    if (reduced) {
-      document.getElementById('progress-fill').style.width = TARGET_PCT + '%'
-      document.getElementById('pct-label').textContent = TARGET_PCT + '%'
-    } else {
-      /* ── Entrance sequence ── */
-      const tl = gsap.timeline({ delay: .15 })
-
-      tl.from('.logo', {
-          y: -24, opacity: 0, duration: .9, ease: 'power3.out'
-        })
-        .from('.overline', {
-          y: 10, opacity: 0, duration: .5, ease: 'power2.out'
-        }, '-=.4')
-        .from('.headline', {
-          y: 36, opacity: 0, duration: .85, ease: 'power3.out'
-        }, '-=.35')
-        .from('.lead', {
-          y: 22, opacity: 0, duration: .65, ease: 'power2.out'
-        }, '-=.45')
-        .from('.progress-wrap', {
-          y: 16, opacity: 0, duration: .55, ease: 'power2.out'
-        }, '-=.35')
-        .from('.cta', {
-          y: 18, opacity: 0, duration: .55, ease: 'power2.out'
-        }, '-=.3')
-        .from('.deco--emerald', {
-          scale: 0, opacity: 0, duration: .75, ease: 'back.out(1.7)'
-        }, .1)
-        .from('.deco--purple-small', {
-          scale: 0, opacity: 0, duration: .6, ease: 'back.out(1.7)'
-        }, .3)
-
-      /* ── Progress bar count-up ── */
-      let count = { val: 0 }
-      gsap.to(count, {
-        val: TARGET_PCT,
-        duration: 2.6,
-        delay: 1.1,
-        ease: 'power1.out',
-        onUpdate() {
-          const v = Math.round(count.val)
-          document.getElementById('pct-label').textContent = v + '%'
-          document.getElementById('progress-fill').style.width = v + '%'
-        }
-      })
-
-      /* ── Continuous floating ── */
-      gsap.to('.deco--lime', {
-        y: 28, x: 14,
-        duration: 5.4, ease: 'sine.inOut', yoyo: true, repeat: -1
-      })
-
-      gsap.to('.deco--navy-large', {
-        y: -22, x: -12,
-        duration: 6.2, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: .7
-      })
-
-      gsap.to('.deco--emerald', {
-        y: 18, rotation: 6,
-        duration: 4.6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: .3
-      })
-
-      gsap.to('.deco--purple-small', {
-        y: -14, rotation: -5,
-        duration: 3.9, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.1
-      })
-
-      /* ── Subtle logo breathe ── */
-      gsap.to('.logo', {
-        scale: 1.025,
-        duration: 3.8, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.4
-      })
-    }
-  </script>
+  </footer>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.min.js"></script>
+  <script defer src="js/hero-slider-utils.js?v=20260605"></script>
+  <script defer src="js/main.js?v=20260605"></script>
 </body>
 </html>
