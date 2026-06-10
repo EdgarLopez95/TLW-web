@@ -340,7 +340,7 @@
     padding-left: var(--space-4);
     border-left: 1px solid rgba(23, 23, 57, 0.14);
     padding-top: 0;
-    align-self: start;
+    align-self: center;
   }
 }
 
