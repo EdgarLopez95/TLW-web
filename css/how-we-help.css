@@ -10,10 +10,7 @@
 /* ─── 18.1 HWH HERO ───────────────────────────────────────── */
 .hwh-hero {
   position: relative;
-  background:
-    radial-gradient(circle at 72% 10%, rgba(199, 241, 54, 0.11), transparent 46%),
-    radial-gradient(circle at 14% 88%, rgba(180, 154, 253, 0.10), transparent 50%),
-    var(--color-emerald);
+  background: var(--color-emerald);
   color: var(--color-offwhite);
   overflow: hidden;
   isolation: isolate;
@@ -983,33 +980,15 @@
 }
 
 .cap-band__head {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
   margin-bottom: var(--space-5);
 }
 
 .cap-band__num {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  color: var(--color-emerald);
-  min-width: 34px;
-}
-
-.cap-band--02 .cap-band__num {
-  color: var(--color-purple);
-}
-
-.cap-band--03 .cap-band__num {
-  color: var(--color-emerald);
-}
-
-.cap-band--04 .cap-band__num {
-  color: var(--color-navy);
+  display: none;
 }
 
 .cap-band__title {
@@ -1027,9 +1006,9 @@
 
 .cap-band__icon {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  stroke-width: 1.7;
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.5;
 }
 
 .cap-band--01 .cap-band__icon {

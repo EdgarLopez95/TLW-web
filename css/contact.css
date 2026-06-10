@@ -10,10 +10,7 @@
 /* ─── 20.1 HERO ─────────────────────────────────────────── */
 .contact-hero {
   position: relative;
-  background:
-    radial-gradient(circle at 72% 10%, rgba(199, 241, 54, 0.11), transparent 46%),
-    radial-gradient(circle at 14% 88%, rgba(180, 154, 253, 0.10), transparent 50%),
-    var(--color-emerald);
+  background: var(--color-emerald);
   color: var(--color-offwhite);
   overflow: hidden;
   isolation: isolate;

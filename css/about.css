@@ -12,10 +12,7 @@
    Distinct from the home hero on purpose: this is a section banner, not a landing impression. */
 .about-hero {
   position: relative;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(199, 241, 54, 0.08), transparent 50%),
-    radial-gradient(circle at 85% 100%, rgba(180, 154, 253, 0.10), transparent 55%),
-    var(--color-emerald);
+  background: var(--color-emerald);
   color: var(--color-offwhite);
   overflow: hidden;
   isolation: isolate;
@@ -281,6 +278,7 @@
   .bio-item {
     grid-template-columns: clamp(52px, 5vw, 72px) minmax(0, 1.1fr) minmax(0, 0.9fr);
     grid-template-rows: auto;
+    align-items: center;
     gap: var(--space-3) var(--space-8);
     padding: var(--space-5);
   }
@@ -341,7 +339,8 @@
   .bio-item__voice {
     padding-left: var(--space-4);
     border-left: 1px solid rgba(23, 23, 57, 0.14);
-    padding-top: var(--space-1);
+    padding-top: 0;
+    align-self: start;
   }
 }
 
