@@ -176,6 +176,55 @@ em { font-style: italic; }
 @media (min-width: 768px) { .container { padding-inline: var(--space-8); } }
 @media (min-width: 1024px) { .container { padding-inline: var(--space-12); } }
 
+/* Shared section header pattern used across the site */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(20px, 3vw, 32px);
+  position: relative;
+  padding-bottom: clamp(12px, 1.6vw, 18px);
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-emerald);
+  margin: 0;
+}
+
+.section-header__subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin: 0;
+  text-transform: none;
+}
+
+.section-header--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(260px, 34vw);
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(9, 108, 41, 0.36), transparent);
+  border-radius: var(--radius-full);
+}
+
 /* Global decorative background
    All non-hero decorative circles live here, so they are not clipped by section overflow.
    The circles are generated dynamically by initPageDecor() in js/main.js using:
