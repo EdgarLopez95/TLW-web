@@ -797,10 +797,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
 
-    /*  Capability atlas bands  */
-    gsap.from('.cap-band', {
-      scrollTrigger: { trigger: '.cap-atlas', start: 'top 82%', once: true },
-      y: 26, opacity: 0, duration: 0.58, stagger: { amount: 0.3, from: 'start' }, ease: 'power2.out'
+    /*  Capability-style bands, animated per atlas so reused layouts stay in sync  */
+    gsap.utils.toArray('.cap-atlas').forEach(atlas => {
+      const bands = atlas.querySelectorAll('.cap-band')
+      if (!bands.length) return
+      const isLddAtlas = atlas.classList.contains('cap-atlas--ldd')
+      const isMobileViewport = window.matchMedia('(max-width: 767px)').matches
+
+      if (isLddAtlas && isMobileViewport) {
+        gsap.set(bands, { clearProps: 'transform,opacity' })
+        return
+      }
+
+      gsap.from(bands, {
+        scrollTrigger: { trigger: atlas, start: 'top 82%', once: true },
+        y: 26,
+        opacity: 0,
+        duration: 0.58,
+        stagger: { amount: 0.3, from: 'start' },
+        ease: 'power2.out',
+        clearProps: 'transform,opacity'
+      })
     })
 
     /*  Caps footer CTA  */
