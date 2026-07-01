@@ -1295,20 +1295,6 @@
     var(--bg-card);
 }
 
-.cap-band--ldd-item .cap-band__num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: auto;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-primary);
-  opacity: 0.68;
-  margin: 0;
-}
-
 .cap-band--ldd-item .cap-band__head {
   margin-bottom: 0;
   align-self: flex-start;
@@ -1327,32 +1313,23 @@
 }
 
 .cap-band--ldd-item .cap-band__icon {
-  width: clamp(28px, 2vw, 32px);
-  height: clamp(28px, 2vw, 32px);
-  stroke-width: 1.7;
+  width: clamp(32px, 2.3vw, 36px);
+  height: clamp(32px, 2.3vw, 36px);
+  stroke-width: 1.65;
 }
 
 .cap-band--ldd-item .cap-band__head--compact {
-  display: grid;
-  grid-template-areas:
-    "num"
-    "marker";
+  display: flex;
   justify-content: center;
   align-items: center;
-  justify-items: center;
-  gap: 4px;
+  gap: 0;
   padding-right: 0;
 }
 
-.cap-band--ldd-item .cap-band__num {
-  grid-area: num;
-}
-
 .cap-band--ldd-item .cap-band__marker {
-  grid-area: marker;
+  grid-area: auto;
 }
 
-.cap-band--ldd-item .cap-band__num,
 .cap-band--ldd-item .cap-band__marker,
 .cap-band--ldd-item .cap-band__icon,
 .cap-band--ldd-item .cap-band__copy--feature {
@@ -1371,18 +1348,24 @@
 @media (min-width: 768px) {
   .cap-band--ldd-item {
     display: grid;
-    grid-template-columns: clamp(84px, 10vw, 102px) minmax(0, 1fr);
+    grid-template-columns: clamp(72px, 8vw, 88px) minmax(0, 1fr);
     align-items: center;
-    column-gap: clamp(14px, 1.7vw, 20px);
+    column-gap: clamp(10px, 1.4vw, 16px);
     min-height: clamp(104px, 9vw, 122px);
   }
 
   .cap-band--ldd-item .cap-band__head--compact {
-    width: clamp(84px, 10vw, 102px);
+    width: clamp(72px, 8vw, 88px);
+    align-self: center;
   }
 
   .cap-band--ldd-item .cap-band__copy--feature {
     flex: 1 1 auto;
+    max-width: 46ch;
+    font-size: clamp(17px, 1.15vw, 20px);
+    line-height: 1.32;
+    align-self: center;
+    margin-block: auto;
   }
 }
 
@@ -1393,18 +1376,10 @@
 
   .cap-band--ldd-item .cap-band__head--compact {
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    justify-items: unset;
     margin-bottom: var(--space-3);
-    gap: 10px;
-    grid-template-areas: none;
-  }
-
-  .cap-band--ldd-item .cap-band__num {
-    margin-left: 0;
-    font-size: 11px;
+    gap: 0;
   }
 
   .cap-band--ldd-item .cap-band__copy--feature {
@@ -1436,8 +1411,8 @@
   }
 
   .cap-band--ldd-item .cap-band__icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -1474,6 +1449,19 @@
   .cap-band__list {
     max-width: none;
     padding-right: clamp(8px, 2vw, 24px);
+  }
+
+  .cap-band--ldd-item {
+    grid-template-columns: clamp(72px, 8vw, 88px) minmax(0, 1fr);
+    column-gap: clamp(10px, 1.4vw, 16px);
+  }
+
+  .cap-band--ldd-item .cap-band__head--compact {
+    width: clamp(72px, 8vw, 88px);
+  }
+
+  .cap-band--ldd-item .cap-band__copy--feature {
+    max-width: none;
   }
 
   .cap-band--feature .cap-band__head {
