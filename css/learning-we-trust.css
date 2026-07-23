@@ -1,13 +1,8 @@
-/* ═══════════════════════════════════════════════════════════
-   LEARNING WE TRUST PAGE
-   Depends on css/main.css (shared base: tokens, reset, nav, footer).
-   ═══════════════════════════════════════════════════════════ */
+/* LEARNING WE TRUST PAGE Depends on css/main.css (shared base: tokens, reset, nav, footer). */
 
-/* ═══════════════════════════════════════════════════════════
-   19. LEARNING WE TRUST PAGE
-   ═══════════════════════════════════════════════════════════ */
+/* 19. LEARNING WE TRUST PAGE */
 
-/* ─── 19.1 HERO ─────────────────────────────────────────── */
+/* 19.1 HERO */
 .lwt-hero {
   position: relative;
   background: var(--color-emerald);
@@ -79,7 +74,7 @@
   margin: 0;
 }
 
-/* ─── 19.2 TRUST NETWORK SECTION ────────────────────────── */
+/* 19.2 TRUST NETWORK SECTION */
 .lwt-network {
   background: var(--bg-page);
   position: relative;
@@ -103,7 +98,7 @@
   flex-direction: column;
 }
 
-/* ─── 19.3 SUBSECTION BASE LAYOUT ───────────────────────── */
+/* 19.3 SUBSECTION BASE LAYOUT */
 .lwt-sub {
   display: grid;
   grid-template-columns: 1fr;
@@ -185,7 +180,7 @@
   margin-top: var(--space-2);
 }
 
-/* ─── 19.4 LOGOS GRID ───────────────────────────────────── */
+/* 19.4 LOGOS GRID */
 .lwt-logos {
   display: flex;
   flex-wrap: wrap;
@@ -261,7 +256,7 @@
   flex-shrink: 0;
 }
 
-/* ─── 19.5 RESOURCE CARD (Learning we're loving) ────────── */
+/* 19.5 RESOURCE CARD (Learning we're loving) */
 .lwt-resource-card {
   display: flex;
   align-items: center;

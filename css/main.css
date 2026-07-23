@@ -1,8 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
-   THE LEARNING WAREHOUSE — Main Stylesheet (shared base)
-   Stack: HTML + CSS custom properties. Mobile-first.
-   Per-page styles live in css/<page>.css and load AFTER this file.
-   ═══════════════════════════════════════════════════════════ */
+/* THE LEARNING WAREHOUSE — Main Stylesheet (shared base) Stack: HTML + CSS custom properties. Mobile-first. Per-page styles live in css/<page>.css and load AFTER this file. */
 
 /* Body font — Aptos, self-hosted (see DESIGN_SYSTEM.md). Only the weights the
    body actually uses are shipped: 400 (regular), 400 italic, 700 (bold/strong).
@@ -10,27 +6,27 @@
    The 400 face is preloaded from each <head>; keep the ?v= in sync there. */
 @font-face {
   font-family: 'Aptos';
-  src: url('../assets/fonts/aptos-regular.woff2?v=20260605') format('woff2');
+  src: url('../assets/fonts/aptos-regular.woff2?v=20260722') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Aptos';
-  src: url('../assets/fonts/aptos-italic.woff2?v=20260605') format('woff2');
+  src: url('../assets/fonts/aptos-italic.woff2?v=20260722') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Aptos';
-  src: url('../assets/fonts/aptos-bold.woff2?v=20260605') format('woff2');
+  src: url('../assets/fonts/aptos-bold.woff2?v=20260722') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* ─── 1. DESIGN TOKENS ─────────────────────────────────── */
+/* 1. DESIGN TOKENS */
 :root {
   /* Brand colors */
   --color-emerald: #096C29;
@@ -130,7 +126,7 @@
   }
 }
 
-/* ─── 2. RESET ──────────────────────────────────────────── */
+/* 2. RESET */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -158,14 +154,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 strong { font-weight: 700; }
 em { font-style: italic; }
 
-/* ─── 3. FOCUS ──────────────────────────────────────────── */
+/* 3. FOCUS */
 :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
-/* ─── 4. LAYOUT ─────────────────────────────────────────── */
+/* 4. LAYOUT */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -389,7 +385,7 @@ main {
 }
 @media (min-width: 1024px) { .section { padding-block: var(--space-24); } }
 
-/* ─── 5. TYPOGRAPHY UTILITIES ───────────────────────────── */
+/* 5. TYPOGRAPHY UTILITIES */
 .overline {
   display: block;
   font-family: var(--font-heading);
@@ -400,7 +396,7 @@ main {
   color: var(--text-brand);
 }
 
-/* ─── 6. BUTTONS ────────────────────────────────────────── */
+/* 6. BUTTONS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -460,7 +456,7 @@ main {
 
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-/* ─── 7. NAVIGATION ─────────────────────────────────────── */
+/* 7. NAVIGATION */
 .site-header {
   position: fixed;
   top: 0;
@@ -961,7 +957,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 }
 
 
-/* ─── 13. FOOTER ─────────────────────────────────────────── */
+/* 13. FOOTER */
 .site-footer {
   background: linear-gradient(180deg, #0a7a2f 0%, #096c29 58%, #075f24 100%);
   color: var(--color-offwhite);
@@ -1076,115 +1072,6 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
 
 .footer__email:hover { color: var(--color-lime); }
 
-.modal-open {
-  overflow: hidden;
-}
-
-.site-modal[hidden] {
-  display: none;
-}
-
-.site-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1200;
-  display: grid;
-  place-items: center;
-  padding: var(--space-6);
-}
-
-.site-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(18, 22, 54, 0.72);
-  backdrop-filter: blur(6px);
-}
-
-.site-modal__dialog {
-  position: relative;
-  width: min(100%, 48rem);
-  max-height: min(85vh, 52rem);
-  overflow: auto;
-  border: 1px solid rgba(18, 22, 54, 0.12);
-  border-radius: var(--radius-xl);
-  background: var(--color-offwhite);
-  color: var(--color-navy);
-  box-shadow: 0 1.5rem 4rem rgba(18, 22, 54, 0.24);
-  padding: var(--space-6);
-}
-
-.site-modal__dialog:focus-visible {
-  outline: 3px solid var(--color-lime);
-  outline-offset: 4px;
-}
-
-.site-modal__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-4);
-  margin-bottom: var(--space-5);
-}
-
-.site-modal__eyebrow {
-  margin: 0 0 var(--space-2);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-emerald);
-}
-
-.site-modal__title {
-  margin: 0;
-}
-
-.site-modal__close {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid rgba(18, 22, 54, 0.16);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--color-navy);
-  cursor: pointer;
-  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-}
-
-.site-modal__close:hover {
-  transform: translateY(-1px);
-  border-color: rgba(18, 22, 54, 0.3);
-  background: rgba(18, 22, 54, 0.04);
-}
-
-.site-modal__close:focus-visible {
-  outline: 3px solid var(--color-lime);
-  outline-offset: 3px;
-}
-
-.site-modal__body {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.site-modal__body h3,
-.site-modal__body p {
-  margin: 0;
-}
-
-.site-modal__body h3 {
-  font-size: var(--text-lg);
-}
-
-.site-modal__body a {
-  color: var(--color-emerald);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.18em;
-}
-
 .footer__bottom {
   border-top: 1px solid rgba(247, 244, 238, 0.14);
   padding-block: var(--space-5);
@@ -1199,7 +1086,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   text-align: center;
 }
 
-/* ─── 14. ANIMATIONS (initial hidden state) ─────────────── */
+/* 14. ANIMATIONS (initial hidden state) */
 .js-reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -1210,7 +1097,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* ─── 15. SECTION DECORATION ────────────────────────────── */
+/* 15. SECTION DECORATION */
 
 /* Sections stay positioned for local content only. Decorative circles now live in .page-decor. */
 .you-we,
@@ -1237,40 +1124,7 @@ body.page-home.mobile-nav-open .site-header .nav__logo-img--dark {
   position: relative;
 }
 
-/* ─── SECTION CORNER DECOS ────────────────────────────────── */
-/* Legacy section-deco classes are intentionally unused after the global page-decor refactor.
-  Círculos decorativos en esquinas de secciones.
-  Solo desktop. La sección los recorta con overflow: hidden.
-  Color por fondo: emerald bg → lime/purple | light bg → emerald/purple | navy bg → lime/purple
-*/
-@media (min-width: 1024px) {
-  .section-deco--legacy-disabled {
-    --deco-size: 200px;
-    display: none;
-    position: absolute;
-    width: var(--deco-size);
-    height: var(--deco-size);
-    border-radius: 50%;
-    pointer-events: none;
-    will-change: transform;
-    z-index: 1;
-  }
-
-  .section-deco-legacy--lime    { background: var(--color-lime); }
-  .section-deco-legacy--purple  { background: var(--color-purple); }
-  .section-deco-legacy--emerald { background: var(--color-emerald); }
-
-  /* Corner: center del círculo queda en la esquina → queda 1/4 visible */
-  .section-deco-legacy--tl { top:    calc(var(--deco-size) * -0.5); left:  calc(var(--deco-size) * -0.5); }
-  .section-deco-legacy--tr { top:    calc(var(--deco-size) * -0.5); right: calc(var(--deco-size) * -0.5); }
-  .section-deco-legacy--bl { bottom: calc(var(--deco-size) * -0.5); left:  calc(var(--deco-size) * -0.5); }
-  .section-deco-legacy--br { bottom: calc(var(--deco-size) * -0.5); right: calc(var(--deco-size) * -0.5); }
-
-  .how-we-help .section-deco--legacy-disabled { --deco-size: 180px; }
-  .cta-banner  .section-deco--legacy-disabled { --deco-size: 190px; }
-}
-
-/* ─── 17. ACCESSIBILITY ENHANCEMENTS ─────────────────────── */
+/* 17. ACCESSIBILITY ENHANCEMENTS */
 /* Skip link — visually hidden until keyboard focus (WCAG 2.4.1) */
 .skip-link {
   position: absolute;

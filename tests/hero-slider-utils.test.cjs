@@ -3,8 +3,21 @@ const assert = require('node:assert/strict')
 
 const {
   hasEnoughSlidesToAutoplay,
-  getNextReadySlideIndex
+  getNextReadySlideIndex,
+  pickResponsiveSlideSource
 } = require('../js/hero-slider-utils.js')
+
+test('picks the responsive hero image source for the current viewport', () => {
+  const sources = {
+    slideImgMobile: 'mobile.webp',
+    slideImgTablet: 'tablet.webp',
+    slideImgDesktop: 'desktop.webp'
+  }
+
+  assert.equal(pickResponsiveSlideSource(sources, 375), 'mobile.webp')
+  assert.equal(pickResponsiveSlideSource(sources, 1024), 'tablet.webp')
+  assert.equal(pickResponsiveSlideSource(sources, 1440), 'desktop.webp')
+})
 
 test('does not autoplay when only one slide is ready', () => {
   assert.equal(hasEnoughSlidesToAutoplay([true, false]), false)

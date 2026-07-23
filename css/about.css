@@ -1,13 +1,8 @@
-/* ═══════════════════════════════════════════════════════════
-   ABOUT PAGE
-   Depends on css/main.css (shared base: tokens, reset, nav, footer).
-   ═══════════════════════════════════════════════════════════ */
+/* ABOUT PAGE Depends on css/main.css (shared base: tokens, reset, nav, footer). */
 
-/* ═══════════════════════════════════════════════════════════
-   17. ABOUT PAGE
-   ═══════════════════════════════════════════════════════════ */
+/* 17. ABOUT PAGE */
 
-/* ─── 17.1 ABOUT HERO ─────────────────────────────────── */
+/* 17.1 ABOUT HERO */
 /* Compact text-only banner: emerald background, centered copy, no photos.
    Distinct from the home hero on purpose: this is a section banner, not a landing impression. */
 .about-hero {
@@ -82,7 +77,7 @@
   }
 }
 
-/* ─── 17.2 THE TEAM ───────────────────────────────────── */
+/* 17.2 THE TEAM */
 .team {
   background: var(--bg-page);
   position: relative;
@@ -655,7 +650,7 @@
   outline-offset: 3px;
 }
 
-/* ─── 17.3 WORKING WITH US ────────────────────────────── */
+/* 17.3 WORKING WITH US */
 .about-cta {
   position: relative;
   background: var(--color-navy);
