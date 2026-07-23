@@ -6,9 +6,7 @@ DirectoryIndex index.html index.php
 # Custom error page
 ErrorDocument 404 /404.html
 
-# ─────────────────────────────────────────────────────────────
 # Compression
-# ─────────────────────────────────────────────────────────────
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
   AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
@@ -17,11 +15,9 @@ ErrorDocument 404 /404.html
   AddOutputFilterByType DEFLATE font/woff2 font/woff application/font-woff
 </IfModule>
 
-# ─────────────────────────────────────────────────────────────
 # Caching (Expires + Cache-Control)
 # Static assets use ?v= cache-busting, so they can be cached long & immutable.
 # HTML is revalidated every request so content/copy updates show immediately.
-# ─────────────────────────────────────────────────────────────
 <IfModule mod_expires.c>
   ExpiresActive On
 
@@ -67,9 +63,7 @@ ErrorDocument 404 /404.html
   Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-# ─────────────────────────────────────────────────────────────
 # Correct MIME types (in case the host misses them)
-# ─────────────────────────────────────────────────────────────
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType image/svg+xml .svg
@@ -77,9 +71,7 @@ ErrorDocument 404 /404.html
   AddType application/ld+json .jsonld
 </IfModule>
 
-# ─────────────────────────────────────────────────────────────
 # Hardening
-# ─────────────────────────────────────────────────────────────
 # No directory listings
 Options -Indexes
 
@@ -88,9 +80,7 @@ Options -Indexes
 RedirectMatch 404 (?i)/(config|server)/
 RedirectMatch 404 (?i)\.(bak|example|md)$
 
-# ─────────────────────────────────────────────────────────────
 # Force HTTPS (uncomment once the SSL certificate is active in cPanel)
-# ─────────────────────────────────────────────────────────────
 # <IfModule mod_rewrite.c>
 #   RewriteEngine On
 #   RewriteCond %{HTTPS} off

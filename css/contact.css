@@ -1,13 +1,10 @@
-/* ═══════════════════════════════════════════════════════════
-   CONTACT PAGE
-   Depends on css/main.css (shared base: tokens, reset, nav, footer).
-   ═══════════════════════════════════════════════════════════ */
+/* CONTACT PAGE Depends on css/main.css (shared base: tokens, reset, nav, footer). */
 
 /* ==========================================================================
    20. CONTACT PAGE
    ========================================================================== */
 
-/* ─── 20.1 HERO ─────────────────────────────────────────── */
+/* 20.1 HERO */
 .contact-hero {
   position: relative;
   background: var(--color-emerald);
@@ -79,12 +76,12 @@
   margin: 0;
 }
 
-/* ─── 20.2 BODY ──────────────────────────────────────────── */
+/* 20.2 BODY */
 .contact-body {
   background: var(--bg-page);
 }
 
-/* ─── 20.3 FORM SHELL ────────────────────────────────────── */
+/* 20.3 FORM SHELL */
 .contact-form-shell {
   max-width: 880px;
   margin-inline: auto;
@@ -104,7 +101,7 @@
   flex-direction: column;
 }
 
-/* ─── 20.4 CARD HEADER ───────────────────────────────────── */
+/* 20.4 CARD HEADER */
 .contact-form__head {
   padding: var(--space-8) var(--space-8) var(--space-6);
   border-bottom: 1px solid rgba(23, 23, 57, 0.06);
@@ -127,7 +124,7 @@
   margin: 0;
 }
 
-/* ─── 20.5 FORM FIELDS AREA ──────────────────────────────── */
+/* 20.5 FORM FIELDS AREA */
 .contact-form__fields {
   display: flex;
   flex-direction: column;
@@ -154,7 +151,7 @@
   gap: var(--space-2);
 }
 
-/* ─── 20.6 LABELS ────────────────────────────────────────── */
+/* 20.6 LABELS */
 .contact-form__label {
   display: flex;
   align-items: center;
@@ -185,7 +182,7 @@
   opacity: 0.8;
 }
 
-/* ─── 20.7 INPUTS ────────────────────────────────────────── */
+/* 20.7 INPUTS */
 .contact-form__control {
   width: 100%;
   min-height: 48px;
@@ -259,7 +256,7 @@
   display: none;
 }
 
-/* ─── 20.8 FOOTER (navy action bar) ─────────────────────── */
+/* 20.8 FOOTER (navy action bar) */
 .contact-form__foot {
   background:
     radial-gradient(ellipse at 8% 0%, rgba(199, 241, 54, 0.09) 0%, transparent 52%),
@@ -446,7 +443,7 @@
   color: rgba(247, 244, 238, 0.78);
 }
 
-/* ─── 20.9 RESPONSIVE ────────────────────────────────────── */
+/* 20.9 RESPONSIVE */
 @media (max-width: 639px) {
   .contact-form__head {
     padding: var(--space-6) var(--space-5);

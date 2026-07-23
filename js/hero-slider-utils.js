@@ -1,4 +1,10 @@
 (function initHeroSliderUtils (global) {
+  function pickResponsiveSlideSource (sources, viewportWidth) {
+    if (viewportWidth <= 768 && sources.slideImgMobile) return sources.slideImgMobile
+    if (viewportWidth <= 1280 && sources.slideImgTablet) return sources.slideImgTablet
+    return sources.slideImgDesktop || sources.slideImg
+  }
+
   function getReadySlideCount (readyStates) {
     return readyStates.filter(Boolean).length
   }
@@ -19,6 +25,7 @@
   }
 
   const api = {
+    pickResponsiveSlideSource,
     getReadySlideCount,
     hasEnoughSlidesToAutoplay,
     getNextReadySlideIndex

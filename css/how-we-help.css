@@ -1,13 +1,8 @@
-/* ═══════════════════════════════════════════════════════════
-   HOW WE HELP PAGE
-   Depends on css/main.css (shared base: tokens, reset, nav, footer).
-   ═══════════════════════════════════════════════════════════ */
+/* HOW WE HELP PAGE Depends on css/main.css (shared base: tokens, reset, nav, footer). */
 
-/* ═══════════════════════════════════════════════════════════
-   18. HOW WE HELP PAGE
-   ═══════════════════════════════════════════════════════════ */
+/* 18. HOW WE HELP PAGE */
 
-/* ─── 18.1 HWH HERO ───────────────────────────────────────── */
+/* 18.1 HWH HERO */
 .hwh-hero {
   position: relative;
   background: var(--color-emerald);
@@ -79,7 +74,7 @@
   }
 }
 
-/* ─── 18.2 PARTNERSHIP VALUES ─────────────────────────────── */
+/* 18.2 PARTNERSHIP VALUES */
 .hwh-values {
   background: var(--bg-page);
   position: relative;
@@ -113,7 +108,7 @@
   }
 }
 
-/* ─── Card base ─── */
+/* Card base */
 .value-card {
   background: var(--bg-card);
   border: 1px solid var(--color-border-subtle);
@@ -149,7 +144,7 @@
     transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ─── Card accent colors — top border + subtle corner orb ─── */
+/* Card accent colors — top border + subtle corner orb */
 .value-card--1 {
   border-top: 4px solid var(--color-emerald);
   background:
@@ -186,7 +181,7 @@
   --value-orb-glow: rgba(23, 23, 57, 0.018);
 }
 
-/* ─── Hover (pointer devices only, per Emil Kowalski) ─── */
+/* Pointer hover */
 @media (hover: hover) and (pointer: fine) {
   .value-card:hover {
     transform: translateY(-6px) scale(1.012);
@@ -211,13 +206,13 @@
   .value-card--4:hover::before { opacity: 1; transform: scale(1.05) translate(-3px, 3px); }
 }
 
-/* ─── Press feedback — fast, tactile ─── */
+/* Press feedback — fast, tactile */
 .value-card:active {
   transform: translateY(-2px) scale(0.98);
   transition-duration: 100ms;
 }
 
-/* ─── Inner content — all z-index: 1 to sit above watermark ─── */
+/* Inner content — all z-index: 1 to sit above watermark */
 .value-card__top {
   display: flex;
   align-items: center;
@@ -363,7 +358,7 @@
   z-index: 1;
 }
 
-/* ─── 18.3 SPLIT LAYOUT (LDD + TOOLS) ────────────────────── */
+/* 18.3 SPLIT LAYOUT (LDD + TOOLS) */
 .hwh-split {
   background: var(--bg-page);
   position: relative;
@@ -593,55 +588,6 @@
   margin-top: var(--space-2);
 }
 
-/* ─── hwh-list ─── */
-.hwh-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.hwh-list__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-5);
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-subtle);
-  font-family: var(--font-body);
-  font-size: clamp(15px, 1.3vw, 16px);
-  line-height: 1.6;
-  color: var(--text-primary);
-  transition:
-    border-color 150ms ease-out,
-    background-color 150ms ease-out,
-    transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.hwh-split--tools .hwh-list__item {
-  background: var(--bg-page);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hwh-list__item:hover {
-    border-color: rgba(9, 108, 41, 0.32);
-    background: rgba(9, 108, 41, 0.04);
-    transform: translateX(3px);
-  }
-}
-
-.hwh-list__icon {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  color: var(--color-emerald);
-  stroke-width: 2;
-}
-
 /* Learning blueprint redesign (scoped to LDD section only) */
 .hwh-split--ldd {
   background: var(--bg-page);
@@ -703,78 +649,9 @@
 }
 
 .hwh-split--ldd .hwh-split__lead,
-.hwh-split--ldd .hwh-list,
 .hwh-split--ldd .hwh-split__closing {
   position: relative;
   z-index: 1;
-}
-
-.hwh-split--ldd .hwh-list {
-  gap: var(--space-4);
-}
-
-.hwh-split--ldd .hwh-list__item--ldd {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  align-items: start;
-  gap: var(--space-3);
-  background: rgba(247, 244, 238, 0.86);
-  border: 1px solid rgba(23, 23, 57, 0.12);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4) var(--space-5);
-}
-
-.hwh-split--ldd .hwh-list__item--ldd::before {
-  content: none;
-}
-
-.hwh-split--ldd .hwh-list__item--ldd::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: var(--space-4);
-  bottom: var(--space-4);
-  width: 3px;
-  background: linear-gradient(
-    180deg,
-    rgba(9, 108, 41, 0.88) 0%,
-    rgba(9, 108, 41, 0.55) 55%,
-    rgba(180, 154, 253, 0.45) 100%
-  );
-  border-radius: 0 var(--radius-full) var(--radius-full) 0;
-}
-
-.hwh-split--ldd .hwh-list__num {
-  font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--color-emerald);
-  margin-top: 3px;
-}
-
-.hwh-split--ldd .hwh-list__icon {
-  margin-top: 1px;
-  width: 18px;
-  height: 18px;
-  color: var(--color-emerald);
-  stroke-width: 1.9;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hwh-split--ldd .hwh-list__item--ldd:hover {
-    transform: translateY(-3px) scale(1.008);
-    border-color: rgba(9, 108, 41, 0.3);
-    background: rgba(247, 244, 238, 0.98);
-    box-shadow: 0 10px 24px rgba(9, 108, 41, 0.11);
-  }
-}
-
-.hwh-split--ldd .hwh-list__item--ldd:active {
-  transform: translateY(-1px) scale(0.985);
-  transition-duration: 110ms;
 }
 
 .hwh-split--ldd .hwh-split__closing {
@@ -802,7 +679,7 @@
   }
 }
 
-/* ─── 18.4 EXPERIENCE CAROUSEL ────────────────────────────── */
+/* 18.4 EXPERIENCE CAROUSEL */
 .hwh-exp {
   background: var(--bg-inverse);
   padding-block: clamp(88px, 10vw, 132px);
@@ -912,7 +789,7 @@
   }
 }
 
-/* ─── 18.5 CAPABILITIES ────────────────────────────────────── */
+/* 18.5 CAPABILITIES */
 .hwh-caps {
   background: var(--bg-page);
   position: relative;
